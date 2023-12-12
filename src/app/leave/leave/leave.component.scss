@@ -1,0 +1,32 @@
+.headTitle{
+margin: 2 2 2 2;
+}
+
+::ng-deep th:first-child {
+    border-radius: 10px 0 0 10px !important;
+  }
+
+  ::ng-deep th:last-child {
+    border-radius: 0 10px 10px 0 !important;
+  }
+
+  ::ng-deep .table {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.attendanceGrid {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+::ng-deep .chart-legend .legend-labels {
+  line-height: 85%;
+  list-style: none;
+  float: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: max-content !important;
+  background: none !important;
+  margin-top: 5rem !important;
+  margin-left: 3rem !important
+}

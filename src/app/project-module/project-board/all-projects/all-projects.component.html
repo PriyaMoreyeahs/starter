@@ -1,0 +1,98 @@
+<section class="innercontent ">
+    <div class="card mt-3">
+        <mat-tab-group class="mattab p-4" #tabgroup>
+            <mat-tab label="All Projects">
+                <div class="row m-0 p-0 d-flex">
+                    <div class="col">
+                        <div class="d-flex">
+                            <button class="right-button pt-3" (click)="backDates(8)">
+                                <img src="assets\images\arrow-square-left.png" alt="">
+                            </button>
+                            <p class="weekNAme pt-3" style="color: #1d1e1c">
+                                <span *ngIf="returnthisweek == false">This week:</span>
+                                {{ firstWeekDate }} to {{ lastday }} {{Year | date : "y" }}
+                                <span class="ReturnToThis" *ngIf="returnthisweek == true"><a
+                                        (click)="TodayDate(today)">Return to this week</a></span>
+                            </p>
+                            <button class="right-button pt-3" (click)="priDates(-8)">
+                                <img src="assets\images\arrow-square-right.png" alt="">
+                                <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i> -->
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                    </div>
+
+                </div>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Task Id</th>
+                            <th>Task Title</th>
+                            <th>Description</th>
+                            <th>Assignee Name</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Task Billing</th>
+                            <th>Created Date</th>
+                            <th>Deleted On</th>
+                            <th>Deleted By</th>
+                            <th>Deleted Reason</th>
+                    </thead>
+                    <tbody>
+                        <tr style="cursor:pointer">
+                            <td>frdfe </td>
+                            <td>serff</td>
+                            <td>sdfsd</td>
+                            <td class="p-0">
+                                <div class="dropdown">
+                                    <button class="Chate p-0" type="button" id="dropdownMenuButton1" 
+                                        data-toggle="dropdown">
+                                        Working on it
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width:350px">
+                                        <div class="card">
+                                            <textarea class="text-area" style="border: none;" rows="3"
+                                                placeholder="Enter Description"></textarea>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <!-- <div class="dropdown"> 
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" (click)="ShowCard()" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Dropdown button
+                                    </button>
+                                    <div class="card" aria-labelledby="dropdownMenuButton1" *ngIf="Show">
+                                      <li><a class="dropdown-item" href="#">Action</a></li>
+                                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </div>
+                                  </div> -->
+                            </td>
+                            <td>sdfsf</td>
+                            <td>sdfsef</td>
+                            <td>sdfsdf</td>
+                            <td>sdfsf</td>
+                            <td>dfvdvdr</td>
+                            <td>dfvdf</td>
+                            <td>dfs</td>
+                            <td>sdfs</td>
+                    </tbody>
+                </table>
+            </mat-tab>
+            <mat-tab label="My Tasks"><app-my-tasks></app-my-tasks></mat-tab>
+            <mat-tab label="Sprint"><app-sprint></app-sprint></mat-tab>
+            <mat-tab label="Kanban"><app-kanban></app-kanban></mat-tab>
+            <!-- <mat-tab label="Gantt Chart"></mat-tab> -->
+            <mat-tab label="Document"><app-document></app-document></mat-tab>
+            <mat-tab label="Deleted Task"><app-deleted-task></app-deleted-task></mat-tab>
+            <mat-tab label="Permission"><app-permission></app-permission></mat-tab>
+            <mat-tab label="Assets"><app-assets></app-assets></mat-tab>
+            <!-- <mat-tab label="Finance"></mat-tab> -->
+        </mat-tab-group>
+    </div>
+</section>

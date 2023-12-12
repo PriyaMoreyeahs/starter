@@ -1,0 +1,42 @@
+<div class="innercontent mt-5 ms-2">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex gap-2 headTitle ms-4">
+      <app-button [buttonClass]="'submit'" text="Leave Type">
+      </app-button>
+      <app-button [buttonClass]="'clear'" text="Leave Group">
+      </app-button>
+      <app-button [buttonClass]="'submit'" text="Add Employee in leave Group">
+      </app-button>
+    </div>
+    <app-button [buttonClass]="'submit'" text="Add Leave Type">
+    </app-button>  </div>
+
+  <div class="d-flex gap-5 ms-3 me-3 flex-wrap mt-4">
+    <div class="card p-2" *ngFor='let in of [0,1,2,3,4];let i = index'>
+      <div class="card-body">
+        <p class="poppins18">Networking Engineer</p>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column">
+            <p>Leave Type</p>
+            <p>Created By</p>
+            <p>Last Updated By</p>
+          </div>
+          <div class="d-flex flex-column">
+            <p>Maternity Leave</p>
+            <p>Shizra Sheikh</p>
+            <p>Shizra Sheikh</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex gap-2">
+            <app-button [buttonClass]="'clear'" text="Edit">
+            </app-button>
+            <app-button [buttonClass]="'clear'" text="Delete">
+            </app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

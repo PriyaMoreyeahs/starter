@@ -1,0 +1,25 @@
+@media (max-width: 1169px) {
+}
+
+.attendanceGrid {
+  display: grid;
+  grid-template-columns: 1.8fr 0.7fr;
+}
+
+@media screen and (max-width: 1024px) {
+  .attendanceGrid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .sheetTIme {
+    width: 100%;
+  }
+}
+.weektime {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #979797;
+  background: #fff;
+}

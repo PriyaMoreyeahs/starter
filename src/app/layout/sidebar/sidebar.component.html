@@ -1,0 +1,23 @@
+<!-- Left Sidebar -->
+<!-- Menu -->
+<div>
+  <aside id="leftsidebar" class="sidebar">
+    <div class="menu">
+      <ul class="list"
+        [ngStyle]="{'position' : 'relative','max-width' : listMaxWidth+'px'}">
+        <li>
+          <button (click)="callSidemenuCollapse(false)" [ngStyle]="{'margin-left': !colaps ? '67px' : '207px'}" style="border: none;
+          margin-top: 11px;">
+         <img  class="toggelImage" src="assets\images\Vector.png" alt="">
+        </button>
+        </li>
+        <li *ngFor="let sidebarItem of routeData" class="listhover m-0">
+          <div (click)="routeMenu(sidebarItem)" [ngClass]="!sidebarItem?.isHover ? 'p-4 divlist' : 'arrow-div p-4' ">
+            <img src={{!sidebarItem?.isHover?sidebarItem.icon:checkiconhover(sidebarItem)}}  [ngClass]="!sidebarItem?.isHover ? 'imagesidebar' : 'imagesidebar'  "/>
+            <p  class="ModuleNAme" [ngStyle]="{color : sidebarItem?.isHover? checkcolor() : ''}">{{sidebarItem.title}}</p>
+          </div>
+        </li>
+      </ul> 
+    </div>
+  </aside>
+</div>
