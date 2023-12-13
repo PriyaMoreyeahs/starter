@@ -1,0 +1,64 @@
+.right-button {
+    background-color: #fff;
+    border: none;
+    display: inline-flex;
+  }
+  .weekNAme{
+    font-size: 16px;
+    color: #232529;
+    font-weight: 500;
+  }
+  .table {
+    border-spacing: 3px;
+  }
+  .Chate{
+    width: 100%;
+    height: 48px;
+    font-weight: 600;
+    border-radius: 0;
+    font-size: 14px;
+    border: none;
+    color: #fff;
+    background: radial-gradient(164.67% 110.21% at 21.79% 18.12%, #FFD68D 0%, #F29900 100%);
+  }
+  .menucard{
+    margin-bottom: -36px;
+    z-index: 1000;
+    width: 206px;
+    height: 191px;
+    margin-left: 344px;
+    margin-top: -166px;
+
+  }
+  .dropdown-menu{
+    transform: translate(0px, 50px) !important;
+  }
+  .linkStatus{
+    padding: 13px;
+  }
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+
+  .arrowup::before {
+    display: inline-block;
+    margin-left: 11.255em;
+    vertical-align: 1.255em;
+    content: "";
+    color: #FFFF;
+    border-top: 0;
+    border-right: 1.3em solid transparent;
+    border-bottom: 1.3em solid;
+    border-left: 1.3em solid transparent;
+}
+
+.arrowup{
+  margin-top: -20px;
+}
+
+button.mat-mdc-menu-item .mat-mdc-focus-indicator .ng-tns-c2786309385-4{
+    background: radial-gradient(164.67% 110.21% at 21.79% 18.12%, #F59E6B 0%, #EE6E25 100%) !important;
+    width: 100%;
+    height: 50px;
+    padding: 15px 15px;
+}
