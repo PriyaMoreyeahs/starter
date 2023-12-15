@@ -1,313 +1,111 @@
-<section class="content">
-  <div class="content-block">
-    <div class="card">
-      <!-- <div class="d-flex bd-highlight">
-                <div class="p-2 flex-fill bd-highlight">
-                    <ul>
-                        <li ngbDropdown>
-                            
-                            <button mat-icon-button [matMenuTriggerFor]="appDropdownMenu" class="Project-dropdown">
-                                Emossy Project <img src="assets\images\arrow-square-down.png" alt="">
+<section class="innercontent ">
+    <div class="card mt-3">
+        <mat-tab-group class="mattab p-4" #tabgroup>
+            <mat-tab label="All Projects">
+                <!-- <div class="row m-0 p-0 d-flex">
+                    <div class="col">
+                        <div class="d-flex">
+                            <button class="right-button pt-3" (click)="backDates(8)">
+                                <img src="assets\images\arrow-square-left.png" alt="">
                             </button>
-                            <mat-menu #appDropdownMenu="matMenu" class="app-dropdown project-menu-dropdown" xPosition="before">
-                                <div class="noti-list">
-                                    <ul class="menu">
-                                        <li class="project-name-drop mb-1">
-                                            <h6 class="mb-0">TSF Frontend</h6>
-                                        </li>
-                                        <li class="project-name-drop mb-1">
-                                            <h6 class="mb-0">Emossy UI design</h6>
-                                        </li>
-                                        <li class="project-name-drop">
-                                            <h6 class="mb-0">TSF Frontend</h6>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </mat-menu>
-                        </li>
-                    </ul>
-                </div>
-                <div class="p-2 flex-fill bd-highlight">Flex item</div>
-                <div class="p-2 flex-fill bd-highlight">Flex item</div>
-                <div class="p-2 flex-fill bd-highlight">Flex item</div>
-                <div class="p-2 flex-fill bd-highlight">Flex item</div>
-              </div> -->
-      <div class="materialTableHeader">
-        <div class="left">
-          <ul class="header-buttons-left ms-0">
-            <li ngbDropdown>
-              <button mat-icon-button [matMenuTriggerFor]="appDropdownMenu" class="Project-dropdown">
-                Emossy Project
-                <!-- <img src="assets\images\arrow-square-down.png" class="dropdownarrow" alt="" /> -->
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <mat-menu #appDropdownMenu="matMenu" class="app-dropdown project-menu-dropdown" xPosition="before">
-                <div class="noti-list">
-                  <ul class="menu">
-                    <li class="project-name-drop mb-1">
-                      <h6 class="mb-0">TSF Frontend</h6>
-                    </li>
-                    <li class="project-name-drop mb-1">
-                      <h6 class="mb-0">Emossy UI design</h6>
-                    </li>
-                    <li class="project-name-drop">
-                      <h6 class="mb-0">TSF Frontend</h6>
-                    </li>
-                  </ul>
-                </div>
-              </mat-menu>
-            </li>
-          </ul>
-        </div>
-        <div class="right">
-          <ul class="header-buttons-left ms-0">
-            <li class="tbl-search-box">
-              <label for="search-input"><i class="material-icons search-icon">search</i></label>
-              <input placeholder="Search" type="text" #filter class="browser-default search-field"
-                aria-label="Search box" />
-            </li>
-            <li class="tbl-header-btn">
-              <div class="m-l-10" matTooltip="Save">
-                <button class="button-color">Save
-                </button>
-              </div>
-            </li>
-            <li class="tbl-header-btn">
-              <div class="m-l-10" matTooltip="Send For Approval">
-                <button class="button-color">Send For Approval
-                </button>
-              </div>
-            </li>
-            <li class="tbl-header-btn">
-              <div class="m-l-10" matTooltip="Filter">
-                <button class="button-color">Filter
-                </button>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <mat-tab-group class="mattab p-4" #tabgroup>
-        <mat-tab label="All Projects">
-          <div class="row m-0 p-0 d-flex">
-            <div class="col">
-              <div class="d-flex">
-                <button class="right-button">
-                  <img src="assets\images\arrow-square-left.png" class="right-arrow" alt="" />
-                </button>
-                <p class="weekNAme pt-3">
-                  <!-- <li>This week:</li> -->
-                  <span class="ReturnToThis"><a>Return to this week</a></span>
-                </p>
-                <button class="right-button">
-                  <img src="assets\images\arrow-square-right.png" class="left-arrow" alt="" />
-                </button>
-              </div>
-            </div>
-            <div class="col"></div>
-            <div class="col"></div>
-          </div>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Task Id</th>
-                <th>Task Title</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Assignee Name</th>
-                <th>Priority</th>
-                <th>Date</th>
-                <th>Timesheet <br>
-         <div class="d-flex justify-content-around">
-          <p class="date-text">nov 27</p>
-          <p class="date-text">nov 29</p>
-          <p class="date-text">nov 28</p>
-          <p class="date-text">nov 30</p>
-          <p class="date-text">nov 31</p>
-          <p class="date-text">dec 01</p>
-          <p class="date-text">dec 02</p>
-         </div>
-                </th>
-                <th>Total Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="cursor: pointer;">
-                <td>frdfe</td>
-                <td>serff</td>
-                <td>sdfsd</td>
-                <td class="p-0 m-0">
-                  <ul>
-                    <li ngbDropdown>
-                      <button mat-icon-button [matMenuTriggerFor]="appDropdownMenustatus" class="Chate">
-                        Working on it
-                      </button>
-                      <mat-menu #appDropdownMenustatus="matMenu" class="status-dropdown" xPosition="before">
-                        <!-- <div class="vdl-top-bar-divider"></div> -->
-                        <div class="noti-list">
-                          <ul class="menu">
-                            <li class="Working-on-it-header mb-1">
-                              <h6 class="mb-0">Working on it</h6>
-                            </li>
-                            <li class="Done-header mb-1">
-                              <h6 class="mb-0">Done</h6>
-                            </li>
-                            <li class="Stuck-header">
-                              <h6 class="mb-0">Stuck</h6>
-                            </li>
-                          </ul>
+                            <p class="weekNAme pt-3" style="color: #1d1e1c">
+                                <span *ngIf="returnthisweek == false">This week:</span>
+                                {{ firstWeekDate }} to {{ lastday }} {{Year | date : "y" }}
+                                <span class="ReturnToThis" *ngIf="returnthisweek == true"><a
+                                        (click)="TodayDate(today)">Return to this week</a></span>
+                            </p>
+                            <button class="right-button pt-3" (click)="priDates(-8)">
+                                <img src="assets\images\arrow-square-right.png" alt="">
+                            </button>
                         </div>
-                      </mat-menu>
-                    </li>
-                  </ul>
-                </td>
-                <td>sdfsf</td>
-                <td>sdfsef</td>
-                <td class="p-0 m-0">  <ul>
-                  <li ngbDropdown>
-                    <button mat-icon-button [matMenuTriggerFor]="appDropdownMenupriorirty" class="priorirty-Dropdown">
-                      Medium
-                    </button>
-                    <mat-menu #appDropdownMenupriorirty="matMenu" class="status-dropdown" xPosition="before">
-                      <!-- <div class="vdl-top-bar-divider"></div> -->
-                      <div class="noti-list">
-                        <ul class="menu">
-                          <li class="Mediumheader mb-1">
-                            <h6 class="mb-0">Medium</h6>
-                          </li>
-                          <li class="High-header mb-1">
-                            <h6 class="mb-0">High</h6>
-                          </li>
-                          <li class="Low-header">
-                            <h6 class="mb-0">Low</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </mat-menu>
-                  </li>
-                </ul></td>
-                <td>Nov 27-Dec 03</td>
-                <td class="d-flex">
-                  <div class="col m-0 d-flex justify-content-center align-items-center">
-                    <input type="text" style="width: 55px;" class=" form-control input-style" />
-                  </div>
-                  <div class="col m-0 d-flex justify-content-center align-items-center">
-                    <input type="text" style="width: 55px;" class=" form-control input-style" />
-                  </div>
-                  <div class="col m-0 d-flex justify-content-center align-items-center">
-                    <input type="text" style="width: 55px;" class=" form-control input-style" />
-                  </div>
-                  <div class="col m-0 d-flex justify-content-center align-items-center">
-                    <input type="text" style="width: 55px;" class=" form-control input-style" />
-                  </div>
-                  <div class="col m-0 d-flex justify-content-center align-items-center">
-                    <input type="text" style="width: 55px;" class=" form-control input-style" />
-                  </div>
-                  <div class="col m-0 d-flex justify-content-center align-items-center">
-                    <input type="text" style="width: 55px;" class=" form-control input-style" />
-                  </div>
-                  <div class="col m-0 d-flex justify-content-center align-items-center">
-                    <input type="text" style="width: 55px;" class=" form-control input-style" />
-                  </div>
-                  <!-- <div class="col m-0" style="text-align: center" *ngIf="timeSheet.value[i].dates[k]?.isApproved===true">
-                    {{ timeSheet.value[i].dates[k].viewSpentTime }}
+                    </div>
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                    </div>
                 </div> -->
-                </td>
-                <td>00:00</td>
-              </tr>
-            </tbody>
-          </table>
-        </mat-tab>
-        <mat-tab label="My Tasks"><app-my-tasks></app-my-tasks></mat-tab>
-        <mat-tab label="Sprint"><app-sprint></app-sprint></mat-tab>
-        <mat-tab label="Kanban"><app-kanban></app-kanban></mat-tab>
-        <!-- <mat-tab label="Gantt Chart"></mat-tab> -->
-        <mat-tab label="Document"><app-document></app-document></mat-tab>
-        <mat-tab label="Deleted Task"><app-deleted-task></app-deleted-task></mat-tab>
-        <mat-tab label="Permission"><app-permission></app-permission></mat-tab>
-        <mat-tab label="Assets"><app-assets></app-assets></mat-tab>
-        <!-- <mat-tab label="Finance"></mat-tab> -->
-      </mat-tab-group>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Task Id</th>
+                            <th>Task Title</th>
+                            <th>Description</th>
+                            <th>Assignee Name</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Task Billing</th>
+                            <th>Created Date</th>
+                            <th>Deleted On</th>
+                            <th>Deleted By</th>
+                            <th>Deleted Reason</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="cursor:pointer">
+                            <td>frdfe </td>
+                            <td>serff</td>
+                            <td>sdfsd</td>
+                            <td class="p-0 m-0">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle Chate" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Dropdown button
+                                    </button>
+                                    <ul class="dropdown-menu " style="    width: 100%;    padding: 0px 15px 12px;border: none;">
+                                        <div class="arrowup"></div>
+                                      <li class="pt-4"><a class="dropdown-item Chate" href="#">Action</a></li>
+                                      <li class="pt-1"><a class="dropdown-item Chate" href="#">Another action</a></li>
+                                      <li class="pt-1"><a class="dropdown-item Chate" href="#">Something else here</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>sdfsf</td>
+                            <td>sdfsef</td>
+                            <td>sdfsdf</td>
+                            <td>sdfsf</td>
+                            <td>dfvdvdr</td>
+                            <td>dfvdf</td>
+                            <td>dfs</td>
+                            <td>sdfs</td>
+                            </tr>
+                            <tr style="cursor:pointer">
+                                <td>frdfe </td>
+                                <td>serff</td>
+                                <td>sdfsd</td>
+                                <td class="p-0 m-0">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle Chate" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          Dropdown button
+                                        </button>
+                                        <ul class="dropdown-menu " style="    width: 100%;    padding: 0px 15px 12px;border: none;">
+                                            <div class="arrowup"></div>
+                                          <li class="pt-4"><a class="dropdown-item Chate" href="#">Action</a></li>
+                                          <li class="pt-1"><a class="dropdown-item Chate" href="#">Another action</a></li>
+                                          <li class="pt-1"><a class="dropdown-item Chate" href="#">Something else here</a></li>
+                                        </ul>
+                                      </div>
+                                </td>
+                                <td>sdfsf</td>
+                                <td>sdfsef</td>
+                                <td>sdfsdf</td>
+                                <td>sdfsf</td>
+                                <td>dfvdvdr</td>
+                                <td>dfvdf</td>
+                                <td>dfs</td>
+                                <td>sdfs</td>
+                                </tr>
+                    </tbody>
+                </table>
+            </mat-tab>
+            <mat-tab label="My Tasks"><app-my-tasks></app-my-tasks></mat-tab>
+            <mat-tab label="Sprint"><app-sprint></app-sprint></mat-tab>
+            <mat-tab label="Kanban"><app-kanban></app-kanban></mat-tab>
+            <!-- <mat-tab label="Gantt Chart"></mat-tab> -->
+            <mat-tab label="Document"><app-document></app-document></mat-tab>
+            <mat-tab label="Deleted Task"><app-deleted-task></app-deleted-task></mat-tab>
+            <mat-tab label="Permission"><app-permission></app-permission></mat-tab>
+            <mat-tab label="Assets"><app-assets></app-assets></mat-tab>
+            <!-- <mat-tab label="Finance"></mat-tab> -->
+        </mat-tab-group>
     </div>
-  </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <tr style="cursor: pointer"  *ngFor="let data of timeSheet.controls;let i=index">
-  <td>frdfe</td>
-  <td>serff</td>
-  <td>sdfsd</td>
-  <td class="p-0 m-0">
-    <ul>
-      <li ngbDropdown>
-        <button
-          mat-icon-button
-          [matMenuTriggerFor]="appDropdownMenu"
-          class="Chate"
-        >
-          Working on it
-        </button>
-        <mat-menu
-          #appDropdownMenu="matMenu"
-          class="app-dropdown status-dropdown"
-          xPosition="before"
-        >
-          <div class="vdl-top-bar-divider"></div>
-          <div class="noti-list">
-            <ul class="menu">
-              <li class="Working-on-it-header mb-1">
-                <h6 class="mb-0">Working on it</h6>
-              </li>
-              <li class="Done-header mb-1">
-                <h6 class="mb-0">Done</h6>
-              </li>
-              <li class="Stuck-header">
-                <h6 class="mb-0">Stuck</h6>
-              </li>
-            </ul>
-          </div>
-        </mat-menu>
-      </li>
-    </ul>
-  </td>
-  <td>sdfsf</td>
-  <td>sdfsef</td>
-  <td>sdfsdf</td>
-  <td>sdfsf</td>
-  <td
-  class="py-0"
-  *ngFor="let subData of getDateControls(data);let k = index"
-  [formGroup]="subData"
-  [ngClass]="{Background:timeSheet.value[i].dates[k]?.isCurrent === true,color:timeSheet.value[i].dates[k]?.isCurrent === false}"
->
-  <div class="col-lg-12 m-0 d-flex justify-content-center align-items-center" *ngIf="timeSheet.value[i].dates[k]?.isApproved === false ">
-      <input
-          type="text"
-          style="width: 55px;"
-          formControlName="viewSpentTime"
-          [(ngModel)]="subData.value.viewSpentTime"
-          [readonly]="timeSheet.value[i].dates[k].isSFA || disableDate(timeSheet.value[i].dates[k].dateNew)"
-          (focusout)=" myFunction( timeSheet.value[i].dates[k].viewSpentTime, timeSheet.value[i], k,i ) "
-          class=" form-control input-style"
-      />
-  </div>
-  <div class="col-lg-12 m-0" style="text-align: center" *ngIf="timeSheet.value[i].dates[k]?.isApproved===true">
-      {{ timeSheet.value[i].dates[k].viewSpentTime }}
-  </div>
-</td>
-  <td>dfvdf</td>
-</tr> -->
