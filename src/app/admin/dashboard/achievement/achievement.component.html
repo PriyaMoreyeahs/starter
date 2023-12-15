@@ -1,0 +1,270 @@
+<div class="d-flex flex-column rightflex">
+  <!-- 1 col card -->
+  <div class="div1">
+    <img src="../../../assets/images/Arccard.png" width="580">
+    <div class="imgtext">
+      <div class="d-flex justify-content-between">
+        <p class="cardII14 m-0">Hello,</p>
+        <span class="cardI14 ms-4" style="margin-right: -4rem;">View Details</span>
+
+      </div>
+      <p class="poppins16">Charan Mandloi</p>
+      <div class="d-flex ms-5 mt-5">
+        <p class="cardII14">My Achievements</p>
+      </div>
+    </div>
+    <div class="imgtext1 d-flex gap-5">
+
+      <div class="d-flex gap-4 flex-column">
+        <div>
+          <p class="poppins16 m-0">Designation</p>
+          <p class="cardI14">Charan Mandloi</p>
+        </div>
+        <div>
+          <p class="poppins16  m-0">My Team</p>
+          <p class="cardI14">Charan Mandloi</p>
+        </div>
+        <div>
+          <p class="poppins16  m-0">Manager</p>
+          <p class="cardI14">Charan Mandloi</p>
+        </div>
+
+      </div>
+
+      <div class="d-flex flex-column ms-2">
+
+        <img src="../../../assets/images/Component 7.png">
+        <img src="../../../assets/images/Component 7.png">
+        <img src="../../../assets/images/Component 7.png">
+        <img src="../../../assets/images/Component 7.png">
+
+      </div>
+      <div class="d-flex flex-column ms-2 ">
+
+        <img src="../../../assets/images/Component 7.png">
+        <img src="../../../assets/images/Component 7.png">
+        <img src="../../../assets/images/Component 7.png">
+        <img src="../../../assets/images/Component 7.png">
+
+      </div>
+
+    </div>
+    <div class="">
+      <img src="../../../assets/images/Ellipse 146.png" alt="altu" class="imgover">
+    </div>
+  </div>
+  <!-- 2 col card -->
+  <div class="card p-4 widthcard ms-4">
+    <div class="d-flex justify-content-between ms-1  me-2">
+      <p class="polltext">Calender</p>
+      <span class="cardI14">View Details</span>
+
+    </div>
+
+    <div class="card px-3 py-3 widthinnercard">
+
+      <div class="d-flex justify-content-center gap-3">
+        <div *ngFor="let item of eventList" [ngStyle]="{background: isActive ?  '#00ADD3': '#E0EDFF' }"
+          class="eventsCard">
+          <p class="eventsCardtext m-0 text-center" [matTooltip]="item.length < 12 ? '' : item"  matTooltipPosition="above">{{item.length < 12 ?
+              item : (item | slice : 0 : 12)+'...'}}</p>
+              <p class="m-0 text-center"> {{currentDate | date:'dd MMM'}}</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)" class="myCalendar"></mat-calendar>
+      </div>
+    </div>
+
+    <div class="card px-3 py-3 ">
+      <div class="d-flex gap-3 mt-4 justify-content-center text-specialday">
+        <div (click)="showSpecialdays('BD')" [ngStyle]="{'font-weight' :isBirthday ? 600 : ''}">Birthday</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="2" height="20" viewBox="0 0 2 20" fill="none">
+          <path opacity="0.5" d="M1 1V19.5" stroke="black" stroke-linecap="round" />
+        </svg>
+        <div (click)="showSpecialdays('WA')" [ngStyle]="{'font-weight' : isAnniversary ? 600 : ''}">Work
+          Anniversary</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="2" height="20" viewBox="0 0 2 20" fill="none">
+          <path opacity="0.5" d="M1 1V19.5" stroke="black" stroke-linecap="round" />
+        </svg>
+        <div (click)="showSpecialdays('NJ')" [ngStyle]="{'font-weight' : isJoinee ? 600 : ''}">New Joiners</div>
+
+      </div>
+
+      <div class="card-body" *ngIf="isBirthday">
+        <ul class="list-group list-group-flush p-2">
+          <hr>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex gap-4">
+                <!-- Will remove after dynamic -->
+                <img src="../../../assets/images/Ellipse 146.png" alt style="width: 53px;" />
+                <div class="flex-column">
+                  <p class="m-0 poppins6">Charan Mandloi</p>
+                  <p class="m-0">UI/UX Designer</p>
+                </div>
+
+              </div>
+              <div>
+                {{currentDate | date:'MMM dd'}}
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex gap-4">
+                <!-- Will remove after dynamic -->
+                <img src="../../../assets/images/Ellipse 146.png" alt style="width: 53px;" />
+                <div class="flex-column">
+                  <p class="m-0 poppins6">Charan Mandloi</p>
+                  <p class="m-0">UI/UX Designer</p>
+                </div>
+
+              </div>
+              <div>
+                {{currentDate | date:'MMM dd'}}
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="card-body" *ngIf="isAnniversary">
+        <ul class="list-group list-group-flush p-2">
+          <hr>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex gap-4">
+                <!-- Will remove after dynamic -->
+                <img src="../../../assets/images/Ellipse 146.png" alt style="width: 53px;" />
+                <div class="flex-column">
+                  <p class="m-0 poppins6">Charan Mandloi</p>
+                  <p class="m-0">UI/UX Designer</p>
+                </div>
+
+              </div>
+              <div>
+                {{currentDate | date:'MMM dd'}}
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="card-body" *ngIf="isJoinee">
+        <ul class="list-group list-group-flush p-2">
+          <hr>
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex gap-4">
+                <!-- Will remove after dynamic -->
+                <img src="../../../assets/images/Ellipse 146.png" alt style="width: 53px;" />
+                <div class="flex-column">
+                  <p class="m-0 poppins6">Charan </p>
+                  <p class="m-0">UI/UX Designer</p>
+                </div>
+
+              </div>
+              <div>
+                {{currentDate | date:'MMM dd'}}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="d-flex m-2 justify-content-center">
+        <app-button
+        [buttonstyle]=" {'width': '400px'}"
+        [buttonClass]="'submit'" 
+          text="View All">
+        </app-button>
+
+      </div>
+
+    </div>
+
+    <div class="card card-statistic-2 px-4 py-4">
+      <p class="polltext">Poll Of the Day</p>
+
+      <p>1. Lorem Ipsum is simply dummy text of the printing and industry.</p>
+      <p className='p-0 m-0'>A. Lorem Ipsum is Great</p>
+      <p className='p-0 m-0'>B. Lorem Ipsum is Great</p>
+      <p className='p-0 m-0'>C. Lorem Ipsum is Great</p>
+
+      <div class="d-flex gap-2">
+        <app-button
+        [buttonstyle]="{'width': '122px'}"
+        [buttonClass]="'clear'"
+          text="Skip"></app-button>
+        <app-button
+        [buttonstyle]=" {'width': '122px'}"
+        [buttonClass]="'submit'" 
+         
+          text="Submit"></app-button>
+
+      </div>
+
+    </div>
+
+    <div class="card">
+      <mat-tab-group class="mattab" #tabgroup>
+
+        <mat-tab label="Query">
+          <div class="p-3 mt-2">
+            <textarea class="form-control textareascroll"></textarea>
+            <div class="d-flex gap-2 justify-content-end mt-2">
+              <app-button
+              [buttonstyle]=" {'width': '122px'}"
+               [buttonClass]="'submit'" 
+                text="Send"></app-button>
+              <app-button
+              [buttonstyle]=" {'width': '122px'}"
+              [buttonClass]="'clear'"   
+                text="Cancle"></app-button>
+
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Feedback">
+          <div class="p-3 mt-2">
+            <textarea class="form-control textareascroll"></textarea>
+            <div class="d-flex gap-2 justify-content-end mt-2">
+              <app-button
+              [buttonstyle]=" {'width': '122px'}"
+              [buttonClass]="'submit'" 
+                text="Send"></app-button>
+              <app-button
+              [buttonStyle]="{'width':'122px'} "
+              [buttonClass]="'clear'"        
+                text="Cancle"></app-button>
+
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Suggestions">
+          <div class="p-3 mt-2">
+            <textarea class="form-control textareascroll"></textarea>
+            <div class="d-flex gap-2 justify-content-end mt-3">
+              <app-button
+              [buttonStyle]="{'width':'122px'} "
+              [buttonClass]="'submit'"    
+                text="Send"></app-button>
+              <app-button
+              [buttonStyle]="{'width':'122px'} "
+              [buttonClass]="'clear'" 
+              text="Cancle"></app-button>
+
+            </div>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+
+    </div>
+
+  </div>
+
+</div>

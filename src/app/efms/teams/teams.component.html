@@ -1,0 +1,20 @@
+<div class="innercontent mt-5 ms-3">
+    <div class="d-flex justify-content-between">
+            <input type="text" class="searchNavbar1" placeholder="Search Employees" />
+              <app-button
+
+        [buttonClass]="'submit'"
+
+              text="Add New Team">
+             </app-button>
+
+    </div>
+    <div class="tableBody mt-3 ">
+      <div class="table-responsive">
+
+       <app-table [items]="tableData"></app-table>
+
+      </div>
+    </div>
+
+</div>

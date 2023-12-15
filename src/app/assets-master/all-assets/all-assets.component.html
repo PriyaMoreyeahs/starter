@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-between">
+  <p class="p-text d-flex align-items-center">Total Count : {{config.totalItems}}</p>
+  <div class="d-flex gap-2">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-select placeholder="Select Assets Type" [(ngModel)]="assetsTypeId"
+        (selectionChange)="assetTypeSelection($event.value)">
+        <mat-option *ngFor="let item of assetsTypeIdList" [value]="item.value">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-select placeholder="Base Category" multiple [(ngModel)]="baseCategoryId"
+        (selectionChange)="baseCategorySelection($event.value)">
+        <mat-option *ngFor="let item of baseCategoryList"
+          [value]="item.baseCategoryId">{{item.baseCategoryName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-select placeholder="Select Category" multiple [(ngModel)]="categoryId">
+        <mat-option *ngFor="let item of categoryList" [value]="item.categoryId">{{item.categoryName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-select placeholder="Select Condition" multiple [(ngModel)]="conditionId">
+        <mat-option *ngFor="let item of conditionList" [value]="item.value">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-select placeholder="Select Status" multiple [(ngModel)]="assetStatusId">
+        <mat-option *ngFor="let item of statusList" [value]="item.value">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <ng-select style="width: 13rem;" multiple="true" placeholder="Select Empployee" [(ngModel)]="employeeId">
+        <ng-option *ngFor="let item of employeeList" [value]="item.employeeId">{{item.employeeName}}</ng-option>
+      </ng-select>
+    </div>
+    <div class="buttonSectionCenter">
+      <app-button [buttonClass]="'submit'" text="Search" (click)="searchButtonClick()"></app-button>
+      <app-button [buttonClass]="'clear'" text="Reset"></app-button>
+      <app-button [buttonClass]="'submit'" [type]="'submit'" text="Export"
+        (click)="customExportDefaultExportPopUp()"></app-button>
+    </div>
+  </div>
+</div>
+<table class="table display product-overview mb-30" id="support_table">
+  <thead>
+    <tr>
+      <th>S No.</th>
+      <th>Icon</th>
+      <th>Asset Name</th>
+      <th>Asset Status</th>
+      <th>Assigned To</th>
+      <th>Asset Type</th>
+      <th>Location</th>
+      <th>Condition</th>
+      <th>Serial No.</th>
+      <th>Item Code</th>
+      <th>View</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allAssetsList  | paginate : config; let i = index">
+      <td>{{(config.currentPage - 1) * config.itemsPerPage + i + 1}}</td>
+      <td>
+        <img [src]="api +'/'+ item.assetIconImgUrl" width="50px" height="50px" *ngIf="item.assetIconImgUrl">
+        <mat-icon *ngIf="!item.assetIconImgUrl">{{item.assetsIconName}}</mat-icon>
+      </td>
+      <td>{{item.itemName}}</td>
+      <td>{{item.assetsStatus}}</td>
+      <td>{{item.employeeName ? item.employeeName : '--NA--'}}</td>
+      <td>{{item.assetsTypeName}}</td>
+      <td>{{item.assetsLocation}}</td>
+      <td>{{item.assetsCondition}}</td>
+      <td>{{item.assetsSerialNo}}</td>
+      <td>{{item.assetsItemCode}}</td>
+      <td><i class="fa-solid fa-eye"></i></td>
+      <td>
+        <span class="d-flex gap-3 align-items-center">
+          <span class="assignAsset">Assign Asset</span>
+          <i class="fa fa-archive" (click)="deleteOrArchiveAsset(item.itemId, false)"></i>
+          <i class="fa fa-edit" (click)="addAssets(item.itemId)"></i>
+          <i class="fa fa-trash" [ngClass]="{'disabled': item.assetsStatus == 'Assigned'}"
+            (click)="deleteOrArchiveAsset(item.itemId, true)"></i>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<mat-paginator showFirstLastButtons [length]="config.totalItems" [pageSize]="config.itemsPerPage"
+  [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" (page)="pageChanged($event)">
+</mat-paginator>

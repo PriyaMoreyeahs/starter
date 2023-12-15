@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-tasks.component.scss']
 })
 export class MyTasksComponent {
-
+  rows = [
+    {id: 1, desc: "foo", showDetail: false},
+    {id: 2, desc: "bar", showDetail: false},
+  ]
 }

@@ -1,0 +1,40 @@
+.mat-calendar {
+    display: block;
+    width: 500px !important;
+    
+   }
+ ::ng-deep.mat-calendar-period-button {
+    left:12rem;
+    font-weight: 600;
+}
+
+ ::ng-deep.mat-calendar-previous-button {
+    right: 26rem;
+}
+
+ ::ng-deep .mat-calendar-arrow{
+display: none !important;
+}
+
+::ng-deep.mat-calendar-table-header-divider {
+display: none !important;
+}
+
+::ng-deep .mat-calendar-body-label {
+display: none !important;
+}
+
+   .widthcard{
+    width: 550px;
+   }
+   .widthinnercard{
+    width: 500px;
+   }
+   .imgover{
+    position: absolute;
+     top: 2px;
+    width: 167px;
+   }
+   .div1{
+    position: relative
+   }

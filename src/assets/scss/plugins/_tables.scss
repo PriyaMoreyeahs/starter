@@ -1,6 +1,6 @@
 ﻿/*
  *  Document   : _tables.scss
- *  Author     : RedStar Template
+ *  Author     : RedStar Template 
  *  Description: This scss file for tables style classes
  */
 
@@ -17,7 +17,7 @@
         border-right: 1px solid #eee;
     border-left: 1px solid #eee;
         vertical-align: middle;
-
+ text-align: center;
         ul {
           margin: 0;
         }
@@ -99,14 +99,14 @@
 }
 
 .table-bordered {
-  border-top: 1px solid #eee;
+  border: none;
 
   tbody {
     tr {
       td,
       th {
         padding: 10px;
-        border: 1px solid #eee;
+        border: none;
       }
     }
   }
@@ -114,8 +114,9 @@
   thead {
     tr {
       th {
-        padding: 10px;
-        border: 1px solid #eee;
+        padding: 6px 0px 0 0;
+        border: none;
+        text-align: center;
       }
     }
   }
@@ -477,8 +478,8 @@ tr.group:hover {
       height: 45px;
       padding: 8px 8px 8px 50px;
       width: 250px;
-      background: #ffffff;
-      transition: background 0.2s, width 0.2s;
+      background: #F3F3F3;
+      // transition: background 0.2s, width 0.2s;
 
       &:hover {
         background: #fffefe;
@@ -568,8 +569,8 @@ tr.group:hover {
 .materialTableHeader {
   -webkit-box-align: center;
   align-items: center;
-  border-color: #dae1f3;
-  background-color: #dae1f3;
+  border-color: #fff;
+  background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -661,10 +662,10 @@ tr.group:hover {
       height: 45px;
       padding: 8px 8px 8px 50px;
       width: 250px;
-      background: #ffffff;
+      background: #F3F3F3;
 
       &:hover {
-        background: #fffefe;
+        background: #F3F3F3;
       }
 
       // &:focus {

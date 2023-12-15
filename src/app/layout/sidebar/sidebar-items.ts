@@ -1,16 +1,16 @@
 import { RouteInfo } from "./sidebar.metadata";
 export const ROUTES: RouteInfo[] = [
-  {
-    path: "",
-    title: "MENUITEMS.MAIN.TEXT",
-    iconType: "",
-    icon: "",
-    class: "",
-    groupTitle: true,
-    badge: "",
-    badgeClass: "",
-    submenu: [],
-  },
+  // {
+  //   path: "",
+  //   title: "MENUITEMS.MAIN.TEXT",
+  //   iconType: "",
+  //   icon: "",
+  //   class: "",
+  //   groupTitle: true,
+  //   badge: "",
+  //   badgeClass: "",
+  //   submenu: [],
+  // },
   {
     path: "",
     title: "MENUITEMS.DASHBOARD.TEXT",

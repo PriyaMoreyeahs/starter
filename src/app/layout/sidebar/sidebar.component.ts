@@ -112,17 +112,17 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
   mouseHover() {
     const body = this.elementRef.nativeElement.closest('body');
-    if (body.classList.contains('submenu-closed')) {
-      this.renderer.addClass(this.document.body, 'side-closed-hover');
-      this.renderer.removeClass(this.document.body, 'submenu-closed');
-    }
+    // if (body.classList.contains('submenu-closed')) {
+    //   // this.renderer.addClass(this.document.body, 'side-closed-hover');
+    //  // this.renderer.removeClass(this.document.body, 'submenu-closed');
+    // }
   }
   mouseOut() {
     const body = this.elementRef.nativeElement.closest('body');
-    if (body.classList.contains('side-closed-hover')) {
-      this.renderer.removeClass(this.document.body, 'side-closed-hover');
-      this.renderer.addClass(this.document.body, 'submenu-closed');
-    }
+    // if (body.classList.contains('side-closed-hover')) {
+    //   // this.renderer.removeClass(this.document.body, 'side-closed-hover');
+    //   this.renderer.addClass(this.document.body, 'submenu-closed');
+    // }
   }
   mobileMenuSidebarOpen(event: Event, className: string) {
     const hasClass = (event.target as HTMLInputElement).classList.contains(
@@ -148,9 +148,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
     const sideClosedHover =
       this.document.body.classList.contains('side-closed');
-    if (sideClosedHover) {
-      this.renderer.removeClass(this.document.body, 'side-closed-hover');
-    }
+    // if (sideClosedHover) {
+    //   this.renderer.removeClass(this.document.body, 'side-closed-hover');
+    // }
   }
   logout() {
     this.authService.logout().subscribe((res) => {

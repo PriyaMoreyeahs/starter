@@ -220,10 +220,39 @@
       }
     }
   }
-
+  span{
+    color: #96a2b4;
+  }
   .nav-tabs > li > a:before {
     border-bottom: 2px solid $theme-black;
   }
+
+  .button-color {
+    background: $theme-black-button-color !important;
+    border-radius: 8px;
+// background: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
+    border-radius: 8px;
+    padding: 9px 20px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #ffffff;
+  }
+  .right-button{
+    background: #1a202e;
+    border: none;
+  }
+  .left-arrow{
+    filter: opacity(.5) drop-shadow(0 0 0 rgb(255, 255, 255));  
+  }
+  .right-arrow{
+    filter: opacity(.5) drop-shadow(0 0 0 rgb(253, 249, 253));  
+  }
+  .dropdownarrow{
+    filter: opacity(.5) drop-shadow(0 0 0 rgb(253, 249, 253));  
+  }
+  .navbar.active {
+    background :$theme-white-background !important;
 }
 
 /*Logo Header Background Color*/
@@ -232,4 +261,7 @@
     background-color: #1a202e;
     border-right: 1px solid #323538;
   }
+
+  
+}
 }

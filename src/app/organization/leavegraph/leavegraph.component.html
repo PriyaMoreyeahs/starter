@@ -1,0 +1,40 @@
+
+     <div class="card  card-statistic-2 p-3 ">
+         <apx-chart [series]="areaChartOptions.series" [chart]="areaChartOptions.chart"
+         [xaxis]="areaChartOptions.xaxis" [yaxis]="areaChartOptions.yaxis" [colors]="areaChartOptions.colors"
+         [stroke]="areaChartOptions.stroke" [legend]="areaChartOptions.legend" [tooltip]="areaChartOptions.tooltip"
+         [dataLabels]="areaChartOptions.dataLabels"></apx-chart>
+     </div>
+
+     <div class="card">
+            <div class="container-fluid">
+              <div class="collapse navbar-collapse" >
+                  <ul *ngFor="let data of leavemenu" class="nav navbar-nav">
+                      <li class="nav-item">
+                          <a>{{data}}</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>   
+     </div>
+
+      <div class="d-flex gap-3">
+         <div class="card  card-statistic-2 p-2">
+             <div class="d-flex justify-content-between ms-3 me-3">
+                 <p class="poppins18">Total Leave Requested</p>
+                 <p class="poppins18">25</p>
+             </div>
+         </div>
+         <div class="card  card-statistic-2 p-2">
+            <div class="d-flex justify-content-between ms-3 me-3">
+                <p class="poppins18">Total Leave Requested</p>
+                <p class="poppins18">25</p>
+            </div>
+         </div>
+         <div class="card  card-statistic-2 p-2">
+            <div class="d-flex justify-content-between ms-3 me-3">
+                <p class="poppins18">Total Leave Requested</p>
+                <p class="poppins18">25</p>
+            </div>
+         </div>
+      </div>
