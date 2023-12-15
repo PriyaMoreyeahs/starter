@@ -1,0 +1,12 @@
+// .rightcard{
+//     width: 30%;
+// }
+// .leftcard{
+//     width: 70%;
+// }
+.leaveGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.8rem;
+  }
+  

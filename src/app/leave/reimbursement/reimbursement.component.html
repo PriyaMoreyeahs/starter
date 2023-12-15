@@ -1,0 +1,22 @@
+<div class="innercontent mt-5 ms-2">
+    <div class="d-flex justify-content-end me-4 ms-3">
+       <!-- <h3>Reimbursement</h3> -->
+       <app-button
+       [buttonstyle]=" {'width': '222px'}"
+       [buttonClass]="'submit'" 
+       text="Add New Reimbursement">
+     </app-button>
+
+    </div>
+    <div class="tableBody mt-3 ">
+     <div class="table-responsive">
+
+      <app-table [items]="tableData"></app-table>
+    
+     </div>
+   </div>
+   <app-file-upload></app-file-upload>
+    
+ 
+  </div>
+ 
