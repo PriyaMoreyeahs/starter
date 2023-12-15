@@ -9,14 +9,14 @@
   .navbar {
     background-color: transparent;
     .header-icon .feather {
-      color: black;
+      color: #fff;
     }
   }
   .navbar-right .user_profile span {
     color: rgb(0, 0, 0) !important;
   }
   .navbar.active {
-    background-color: $theme-white !important;
+    background :$theme-white-background !important;
     .nav {
       > li {
         > a {
@@ -228,4 +228,43 @@
       color: #000;
     }
   }
+  .right-button{
+    background: #fff;
+    border: none;
+  }
+  span{
+    color: #666;
+  }
+  .left-arrow{
+    filter: opacity(.5) drop-shadow(0 0 0 #1a202e);  
+  }
+  .right-arrow{
+    filter: opacity(.5) drop-shadow(0 0 0 #1a202e);  
+  }
+  .dropdownarrow{
+    filter: opacity(.5) drop-shadow(0 0 0 #1a202e);  
+  }
+  .button-color {
+    background-color: $theme-white-active-color !important;
+    border-radius: 8px;
+    padding: 9px 20px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #ffffff;
+  }
+
+  .mdc-tab-indicator .mdc-tab-indicator__content {
+    transition: 250ms transform cubic-bezier(0.4, 0, 0.2, 1);
+    border-color: #666;
+}
+.mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color:  $theme-white-active-color;
+}
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+  color: $theme-white-active-color;
+}
+.mat-tab-nav-bar,.mat-tab-header {
+  border-bottom: 1px solid rgba(0,0,0,.12)
+}
 }

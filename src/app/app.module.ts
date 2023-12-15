@@ -27,16 +27,7 @@ import {
 
 import { LoadingBarRouterModule } from "@ngx-loading-bar/router";
 import { NgScrollbarModule } from "ngx-scrollbar";
-import { AllProjectsComponent } from './project-module/project-board/all-projects/all-projects.component';
-import { AssetsComponent } from './project-module/project-board/assets/assets.component';
-import { DeletedTaskComponent } from './project-module/project-board/deleted-task/deleted-task.component';
-import { DocumentComponent } from './project-module/project-board/document/document.component';
-import { KanbanComponent } from './project-module/project-board/kanban/kanban.component';
-import { MyTasksComponent } from './project-module/project-board/my-tasks/my-tasks.component';
-import { PermissionComponent } from './project-module/project-board/permission/permission.component';
-import { ProjectFinanceComponent } from './project-module/project-board/project-finance/project-finance.component';
-import { ProjectServiceComponent } from './project-module/project-board/project-service/project-service.component';
-import { SprintComponent } from './project-module/project-board/sprint/sprint.component';
+import { ToastrModule } from "ngx-toastr";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "assets/i18n/", ".json");
@@ -47,20 +38,10 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     PageLoaderComponent,
-    SidebarComponent,
+    SidebarComponent, 
     RightSidebarComponent,
     AuthLayoutComponent,
     MainLayoutComponent,
-    AllProjectsComponent,
-    AssetsComponent,
-    DeletedTaskComponent,
-    DocumentComponent,
-    KanbanComponent,
-    MyTasksComponent,
-    PermissionComponent,
-    ProjectFinanceComponent,
-    ProjectServiceComponent,
-    SprintComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +50,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     LoadingBarRouterModule,
     NgScrollbarModule,
+    ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

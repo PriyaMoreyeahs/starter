@@ -1,1 +1,29 @@
-<p>sprint works!</p>
+<div class="card" style="background: #F5F6F9;">
+   
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th > <button (click)="ShowHide(id, count)"><i   class="fa-solid fa-chevron-down"></i></button></th>
+            <th>Test Sprint 27 nov 2023</th>
+            <th>task id</th>
+            <th>Status</th>
+            <th>Assignee </th>
+            <th>Priority</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="Show === id">
+            <tr>
+                <td></td>
+                <td>FGHJK</td>
+                <td>FGHJK</td>
+                <td>FGHJK</td>
+                <td>FGHJK</td>
+                <td>FGHJK</td>
+                <td>FGHJK</td>
+                <td>FGHJK</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

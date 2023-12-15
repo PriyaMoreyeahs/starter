@@ -1,1 +1,25 @@
-<p>my-tasks works!</p>
+
+<table class="tid-table pt-4">
+  <ng-container *ngFor="let row of rows; let index=index; let even=even">
+    <tr class="tid-data-row"
+      [ngClass]="{'tid-even': even}">
+     <th>S.No</th>
+                <th>Task Id</th>
+                <th>Task Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Assignee Name</th>
+                <th>Priority</th>
+                <th>Date</th>
+                <th>     <button (click)="row.showDetail = !row.showDetail">Toggle me</button></th>
+  </tr>
+  <tr class="tid-detail-row"
+      [ngClass]="{'show': row.showDetail}">
+    <td colspan="2">
+      <div>
+        <div>ROW {{index}} DETAIL</div>
+        </div>
+    </td>
+  </tr>
+  </ng-container>
+</table>
