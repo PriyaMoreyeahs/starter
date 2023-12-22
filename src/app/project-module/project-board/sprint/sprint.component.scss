@@ -3,7 +3,41 @@ $cell-padding: 8px;
 p {
   font-family: Lato;
 }
-
+.Btn{
+  border: none;
+  background: transparent;
+}
+.static-card{
+  min-height: 55px;
+  border: none;
+  margin-bottom: 0;
+}
+.Chate{
+  width: 100%;
+  height: 48px;
+  font-weight: 600;
+  border-radius: 0;
+  font-size: 14px;
+  border: none;
+  color: #fff;
+  background: radial-gradient(164.67% 110.21% at 21.79% 18.12%, #FFD68D 0%, #F29900 100%);
+}
+  .thborder{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .thrightborder{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .tdborder{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .tdrightborder{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
 table.tid-table {
   width: 100%;
   tr {

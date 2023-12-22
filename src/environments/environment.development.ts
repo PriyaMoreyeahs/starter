@@ -7,7 +7,7 @@ export const environment = {
   config: {
     // API_URL: 'http://1ade-103-15-67-130.ngrok-free.app',
     //  API_URL: 'http://192.168.1.50:8086', // new Dev
-    API_URL: "http://192.168.1.50:8086", // new Dev
+    API_URL: 'http://192.168.1.128', // new Dev
     // API_URL: 'http://192.168.1.129:8081', // Priya Mam
     // API_URL: 'http://192.168.1.103', // Ravi
     // API_URL: 'http://192.168.1.131:8086',  //Shivam,

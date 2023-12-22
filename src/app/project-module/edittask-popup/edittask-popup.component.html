@@ -1,0 +1,187 @@
+<div class="addContainer">
+    <div class="modalHeader">
+      <div class="editRowModal">
+        <div class="modalHeader clearfix">
+          <!-- <img [src]='advanceTable.img' alt="avatar">
+          <div class="modal-about">
+            {{dialogTitle}}
+          </div> -->
+        </div> 
+      </div>
+      <button mat-icon-button (click)="dialogRef.close()" class="modal-close-button" aria-label="Close dialog">
+        <mat-icon>close</mat-icon> 
+      </button>
+    </div>
+    <div mat-dialog-content>
+<form [formGroup]="editTask">
+    <div class="row d-flex">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-0">
+        <mat-label style="display: block">Task Title<span class="text-danger">*</span></mat-label>
+        <mat-form-field class="example-full-width" >
+          <input matInput formControlName="TaskTitle" required placeholder="Enter Task Title" />
+          <!-- <mat-error *ngIf="
+              task.TaskTitle.errors &&
+              (task.TaskTitle.dirty ||
+                task.TaskTitle.touched ||
+                submitted)
+            ">
+            <small style="font-size: 10.5px" *ngIf="task.TaskTitle.errors.required">Task Title Is
+              Required</small>
+              <span *ngIf="task.TaskTitle.errors.pattern">Empty space not Allowed</span>
+          </mat-error> -->
+        </mat-form-field>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0">
+        <mat-label style="display: block">Select Work Type<span class="text-danger">*</span></mat-label>
+<mat-form-field class="example-full-width"  placeholder="Enter Task Title">
+<mat-select (click)="WorkType($event)" formControlName="TaslType" placeholder="Select Work Type">
+<div *ngFor="let data of GetTaskType">
+<mat-option [value]="data.typeId" *ngIf="data.typeId !== 3 && data.typeId !== 0">    
+<span *ngIf="data.typeId === 1"><img src="../../../../../assets/images/task.png" height="24px" alt="">{{ data.typeName }}</span>
+<span *ngIf="data.typeId === 2"><img src="../../../../../assets/images/bug.png" height="24px" alt="">{{ data.typeName }}</span>
+<span *ngIf="data.typeId === 4"><img src="assets\images\Leave.png" height="24px" alt="">{{ data.typeName }}</span>
+<span *ngIf="data.typeId === 5"><img src="assets\images\icons8-cup.gif" height="24px" alt="">{{ data.typeName }}</span>
+<span *ngIf="data.typeId === 6"><img src="assets\images\Deployement.png" height="24px" alt="">{{ data.typeName }}</span>
+<span *ngIf="data.typeId === 7"><img src="assets\images\icons8-receipt-and-change-32.png" height="24px" alt="">{{ data.typeName }}</span>
+<span *ngIf="data.typeId === 8"><img src="assets\images\icons8-add-an-additional-shipping-address-for-delivery-of-items-24.png" height="24px" alt="">{{ data.typeName }}</span></mat-option>
+</div>
+</mat-select>
+</mat-form-field>
+        <!-- <mat-error *ngIf="
+            task.TaslType.errors &&
+            (task.TaslType.dirty || task.TaslType.touched || submitted)
+          ">
+          <small style="font-size: 10.5px" *ngIf="task.TaslType.errors.required">Work Type Is Required</small>
+        </mat-error> -->
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+        <mat-label style="display: block">Select Project<span class="text-danger">*</span></mat-label>
+        <mat-form-field class="example-full-width"  >
+            <mat-select (click)="selectProject($event)" formControlName="Project" placeholder="Select Project">
+              <mat-option [value]="data.projectId" *ngFor="let data of getAllProject" [disabled]="!data.isTaskCreate">{{ data.projectName }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="
+            task.Project.errors &&
+            (task.Project.dirty || task.Project.touched || submitted)
+          ">
+          <small style="font-size: 10.5px" *ngIf="task.Project.errors.required">Selection Project Is
+            Required</small>
+        </mat-error> -->
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2" >
+        <mat-label style="display: block">Select Milstone</mat-label>
+        <mat-form-field class="example-full-width" >
+            <mat-select formControlName="Milstone" placeholder="Select Milstone">
+              <mat-option [value]="data.sprintId" *ngFor="let data of AllSprintData">{{ data.sprintName }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2" >
+        <mat-label style="display: block">Select Assignee<span class="text-danger">*</span></mat-label>
+        <mat-form-field class="example-full-width" >
+            <mat-select formControlName="Assignee" placeholder="Select Assignee">
+              <mat-option [value]="data.employeeId" *ngFor="let data of GetAllAssignee">{{ data.employeeName }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="
+            task.Assignee.errors &&
+            (task.Assignee.dirty || task.Assignee.touched || submitted)
+          ">
+          <small style="font-size: 10.5px" *ngIf="task.Assignee.errors.required">Selection Assignee Is
+            Required</small>
+        </mat-error> -->
+      </div>
+
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0" >
+        <mat-label style="display: block">Select Priority<span class="text-danger">*</span></mat-label>
+        <mat-form-field class="example-full-width" >
+            <mat-select formControlName="Priority" placeholder="Select Priority">
+              <mat-option [value]="data.typeId" *ngFor="let data of GetPriority">{{ data.typeName }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="
+            task.Priority.errors &&
+            (task.Priority.dirty || task.Priority.touched || submitted)">
+          <small style="font-size: 10.5px" *ngIf="task.Priority.errors.required">Priority Is Required</small>
+        </mat-error> -->
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0" >
+        <mat-label style="display: block">Billable Status<span class="text-danger">*</span></mat-label>
+        <mat-form-field class="example-full-width"  placeholder="Select Billable Status">
+          <mat-select formControlName="TaskBilling">
+            <mat-option [value]="data.typeId" *ngFor="let data of BillingStatus">{{ data.typeName }}</mat-option>
+          </mat-select>
+      </mat-form-field>
+        <!-- <mat-error *ngIf="
+            task.TaskBilling.errors &&
+            (task.TaskBilling.dirty ||
+              task.TaskBilling.touched ||
+              submitted)
+          ">
+          <small style="font-size: 10.5px" *ngIf="task.TaskBilling.errors.required">Priority Is Required</small>
+        </mat-error> -->
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-2" >
+        <mat-label style="display: block">Original Estimate</mat-label>
+        <mat-form-field class="example-full-width" >
+          <input matInput formControlName="OriginalEstimate" type="text" value="result" required
+            (focusout)="myFunction2($event.target)" placeholder="Enter Original Estimate" />
+          <!-- <mat-error *ngIf="
+              task.OriginalEstimate.errors &&
+              (task.OriginalEstimate.dirty ||
+                task.OriginalEstimate.touched ||
+                submitted)
+            ">
+
+          </mat-error> -->
+        </mat-form-field>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0" >
+        <mat-label>Enter a date range<span class="text-danger">*</span></mat-label>
+        <mat-form-field   class="example-full-width">
+          <mat-date-range-input [rangePicker]="picker5">
+            <input matStartDate matInput placeholder="Start date" formControlName="Startdate"   />
+            <input matEndDate matInput placeholder="End date" formControlName="Enddate" />
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker5></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-2">
+        <mat-label>Description<span class="text-danger">*</span></mat-label>
+        <textarea class="form-control textareascroll" formControlName="Description"
+          style="height: 250px"></textarea>
+        <!-- <mat-error *ngIf="task.Description.errors &&(task.Description.dirty ||task.Description.touched ||submitted) ">
+          <small *ngIf="task.Description.errors.required">Description Is Required</small>
+        </mat-error> -->
+      </div>
+      <div class="col-md-12">
+        <p>(Upload Images Maximum 5)</p>
+        <!-- <input type="file" id="file" #fileInput (change)="multipalfilehandler($event.target.files)" multiple /> -->
+
+        <!-- <div *ngIf="selectedfiles.length > 0" class="mt-2 mb-2 ml-2" style="display: flex">
+          <div class="ml-2" *ngFor="let item of selectedfiles; let i = index">
+            <div *ngIf="item != null">
+              <i class="fa fa-times" aria-hidden="true" style="cursor: pointer" (click)="deleteImage(i)"></i>
+            </div>
+            <div class="card-img-top1" *ngIf="item != null">
+              <img class="displayimg" src="{{ API + '/' + item }}" alt="" />
+            </div>
+            <div class="card-img-top1" *ngIf="item == null"></div>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-md-12 pt-4" style="text-align: center">
+        <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+        &nbsp;
+        <!-- <button type="submit" class="add-btn btn-primary btn mr-2" (click)="updatetaskdata(editTask.value)">
+          Update {{TaskType}}
+        </button> -->
+      </div>
+    </div>
+  </form>
+    </div>
+</div>

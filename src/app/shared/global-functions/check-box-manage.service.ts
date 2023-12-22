@@ -30,12 +30,12 @@ export class CheckBoxManageService {
     if (check) {
       this.checkBoxSelection.push(objId);
     } else {
-      let index = this.checkBoxSelection.findIndex(x => x == objId)
+      const index = this.checkBoxSelection.findIndex(x => x == objId)
       this.checkBoxSelection.splice(index, 1);
     }
     this.selectAllCheckBoxCheck(tableData, id);
 
-    let post = {
+    const post = {
       checkBoxSelection: this.checkBoxSelection,
       selectAllCheck: this.selectAllCheck
     }
@@ -51,7 +51,7 @@ export class CheckBoxManageService {
 
   //#region function to make check box of select all checkbox
   selectAllCheckBoxCheck(tableData, id) {
-    let checkArray = [];
+    const checkArray = [];
     tableData.forEach(element => {
       checkArray.push(element[id])
     });

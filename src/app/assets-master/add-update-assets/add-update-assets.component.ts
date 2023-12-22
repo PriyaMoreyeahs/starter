@@ -4,7 +4,7 @@ import { CRUDFunction } from '../../shared/global-functions/crudFunctions.servic
 import { AssetsService } from '../Service/assets.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormateDateService } from '../../shared/global-functions/formate-date.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-add-update-assets',
@@ -67,6 +67,7 @@ export class AddUpdateAssetsComponent implements OnInit {
 
   //#region functuion for get the data from the url
   dataFromURL() {
+    // eslint-disable-next-line no-cond-assign
     (this.assetsId = this.CRUDFunction.dataDecoding()) ? this.getassetsbyitemid(this.assetsId) : '';
   }
   //#endregion
@@ -93,12 +94,12 @@ export class AddUpdateAssetsComponent implements OnInit {
 
   //#region functuion for get the base category
   assetsTypeSelection(assetsTypeId) {
-    let formarray = ['licenseKey', 'licenseStartDate', 'licenseExpiryDate']
+    const formarray = ['licenseKey', 'licenseStartDate', 'licenseExpiryDate']
     if (assetsTypeId == 1) {
       this.isPhysicalAsset = true;
 
-      this.addUpdateAssetsForm.controls.warrantyExpDate.setValidators([Validators.required]);
-      this.addUpdateAssetsForm.controls.warrantyExpDate.updateValueAndValidity();
+      this.addUpdateAssetsForm.controls['warrantyExpDate'].setValidators([Validators.required]);
+      this.addUpdateAssetsForm.controls['warrantyExpDate'].updateValueAndValidity();
 
       formarray.forEach(form => {
         this.addUpdateAssetsForm.controls[form].setValidators([]);
@@ -107,15 +108,15 @@ export class AddUpdateAssetsComponent implements OnInit {
     } else {
       this.isPhysicalAsset = false;
 
-      this.addUpdateAssetsForm.controls.warrantyExpDate.setValidators([]);
-      this.addUpdateAssetsForm.controls.warrantyExpDate.updateValueAndValidity();
+      this.addUpdateAssetsForm.controls['warrantyExpDate'].setValidators([]);
+      this.addUpdateAssetsForm.controls['warrantyExpDate'].updateValueAndValidity();
 
       formarray.forEach(form => {
         this.addUpdateAssetsForm.controls[form].setValidators([Validators.required]);
         this.addUpdateAssetsForm.controls[form].updateValueAndValidity();
       })
-    };
-    let post = {
+    }
+    const post = {
       type: assetsTypeId,
     };
     this.assetsService.getbasecategorybyassetstypeid(post).subscribe((res: any) => {
@@ -159,7 +160,7 @@ export class AddUpdateAssetsComponent implements OnInit {
   //#region functuion for get the information about the asset using asset id
   getassetsbyitemid(assetId) {
     this.assetsService.getassetsbyitemid(assetId).subscribe((res: any) => {
-      let assetInformation = this.CRUDFunction.responceBindingAsObject(res);
+      const assetInformation = this.CRUDFunction.responceBindingAsObject(res);
       assetInformation ? this.patchValue(assetInformation) : '';
     }, (error) => {
       this.CRUDFunction.handleHttpError(error);
@@ -211,7 +212,7 @@ export class AddUpdateAssetsComponent implements OnInit {
 
       this.assetsService.uploadmulltiassetsimg(formData).subscribe((res: any) => {
         if (res.status) {
-          let responce = res.data.path;
+          const responce = res.data.path;
           this.filesArray.length < 10 ? this.filesArray.push(responce) : this.toastrService.error('Only 10 file can be uploaded');
         } else {
           this.toastrService.error(res.message);
@@ -241,7 +242,7 @@ export class AddUpdateAssetsComponent implements OnInit {
     this.CRUDFunction.checkValidation(addUpdateAssetsForm) ? this.submitValue(addUpdateAssetsForm.value) : '';
   }
   submitValue(value) {
-    let images = this.filesArray.reduce((obj, img, index) => { return { ...obj, [`upImg${index + 1}`]: img } }, {});
+    const images = this.filesArray.reduce((obj, img, index) => { return { ...obj, [`upImg${index + 1}`]: img } }, {});
     value['licenseStartDate'] = value['licenseStartDate'] ? this.formateDateService.formatDate(value['licenseStartDate']) : value['licenseStartDate'];
     value['licenseExpiryDate'] = value['licenseExpiryDate'] ? this.formateDateService.formatDate(value['licenseExpiryDate']) : value['licenseExpiryDate'];
     value['purchaseDate'] = value['purchaseDate'] ? this.formateDateService.formatDate(value['purchaseDate']) : value['purchaseDate'];

@@ -1,3 +1,7 @@
+@use '@angular/material' as mat;
+
+@include mat.datepicker-date-range-colors(
+  hotpink, teal, yellow, purple);
 
   .weekNAme{
     font-size: 16px;
@@ -58,6 +62,53 @@ button.mat-mdc-menu-item .mat-mdc-focus-indicator .ng-tns-c2786309385-4{
     height: 50px;
     padding: 15px 15px;
 }
-.date-text{
-  color:  #888888;
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before{
+  visibility: hidden !important;
+} 
+
+::ng-deep .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper{
+  // background-color: #6b615c;
+}
+::ng-deep .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.SElected{
+  padding: 19px !important;
+  color: #fff !important;
+}
+::ng-deep .mat-mdc-form-field-subscript-wrapper{
+display: none;
+}
+::ng-deep .mdc-text-field{
+  padding: 0 !important;
+}
+::ng-deep .mat-mdc-option .mat-pseudo-checkbox-minimal{
+  display: none;
+}
+::ng-deep .mdc-text-field--filled{
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+::ng-deep .mat-mdc-select-min-line{
+ color: #fff ;
+ font-size: 15px;
+}
+::ng-deep .mat-mdc-select-arrow svg{
+ visibility: hidden;
+}
+::ng-deep .mat-date-range-input-container{
+  // margin-top: 15px;
+    margin-left: 10px;
+}
+
+// ::ng-deep .cdk-overlay-pane .mat-mdc-select-panel-above{
+// width: 13% !important;
+// }
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #4691FF !important;  
+}
+::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+  background: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%) !important;
+  border-color: #4691FF !important;
 }

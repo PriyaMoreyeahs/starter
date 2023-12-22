@@ -1,7 +1,7 @@
 export interface emptyRow{
-    taskId: "",
+    taskId: "",  
     isChecked: false,
-    disableInput: false,
+    disableInput: false, 
     projectName: null,
     projectId: null,
     taskName: "",
@@ -9,7 +9,7 @@ export interface emptyRow{
     totalWorkingTimeInProject: "00:00",
     allWorkingTimeInProject: 0.0,
     projectManagerId: null,
-    taskRequestId: null,
+    taskRequestId: null, 
     taskRequestName: "Not_Selected",
     estimateTime: "00:00",
     startDate: "",

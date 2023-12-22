@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-kanban',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./kanban.component.scss']
 })
 export class KanbanComponent {
-
+  @Input() item: number;
 }

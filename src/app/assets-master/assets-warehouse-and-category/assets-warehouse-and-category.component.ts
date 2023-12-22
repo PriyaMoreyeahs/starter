@@ -226,7 +226,7 @@ export class AssetsWarehouseAndCategoryComponent implements OnInit {
     this.assetsService.getwarehousebyid(value).subscribe((res: any) => {
       let data = this.CRUDFunction.responceBindingAsObject(res);
       data ? this.patchValueWarehouse(data) : '';
-    }, (error) => {
+    }, (error) => { 
       this.CRUDFunction.handleHttpError(error);
     });
   }

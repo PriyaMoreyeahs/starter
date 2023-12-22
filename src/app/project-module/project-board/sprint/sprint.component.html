@@ -1,28 +1,114 @@
-<div class="card" style="background: #F5F6F9;">
-   
+<div class="card static-card mt-4" *ngFor="let sprientData of AllSprint">
+    <div *ngIf="Show === id" class="d-flex mt-3">
+        <button class="Btn" (click)="ShowHide(id, count)"><i class="fa-solid fa-chevron-down"></i></button>
+        <h4>Test Sprint <span>27 nov 2023</span></h4>
+    </div>
     <table class="table table-bordered">
         <thead>
-        <tr>
-            <th > <button (click)="ShowHide(id, count)"><i   class="fa-solid fa-chevron-down"></i></button></th>
-            <th>Test Sprint 27 nov 2023</th>
-            <th>task id</th>
-            <th>Status</th>
-            <th>Assignee </th>
-            <th>Priority</th>
-            <th>Date</th>
-            <th>Time</th>
-        </tr>
+            <tr *ngIf="Show !== id">
+                <th class="thborder"> <button class="Btn" (click)="ShowHide(sprientData.sprintId,sprientData.totalTaskCount)"><i
+                            class="fa-solid fa-chevron-down"></i></button></th>
+                <th>Test Sprint 27 nov 2023</th>
+                <th></th>
+                <th>task id</th>
+                <th>Status <br>
+                    <img src="assets\images\statusbar.png" alt="">
+                </th>
+                <th>Assignee </th>
+                <th>Priority <br>
+                    <img src="assets\images\prioritybar.png" alt="">
+                </th>
+                <th>Date</th>
+                <th class="thrightborder">Time</th>
+            </tr>
+            <tr *ngIf="Show === id">
+                <!-- <th class="thborder"> <button class="Btn" (click)="ShowHide(id, count)"><i class="fa-solid fa-chevron-down"></i></button></th> -->
+                <th>Task Title</th>
+                <th>task id</th>
+                <th>Status</th>
+                <th>Assignee </th>
+                <th>Priority</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Est. Time</th>
+                <th>Total Time</th>
+                <th class="thrightborder">Action</th>
+            </tr>
         </thead>
         <tbody *ngIf="Show === id">
             <tr>
-                <td></td>
+                <!-- <td class="tdborder"></td> -->
                 <td>FGHJK</td>
                 <td>FGHJK</td>
-                <td>FGHJK</td>
-                <td>FGHJK</td>
-                <td>FGHJK</td>
-                <td>FGHJK</td>
-                <td>FGHJK</td>
+                <td class="p-0 m-0">
+                    <ul>
+                        <li ngbDropdown>
+                            <button mat-icon-button [matMenuTriggerFor]="appDropdownMenustatus" class="Chate">
+                                Working on it
+                            </button>
+                            <mat-menu #appDropdownMenustatus="matMenu" class="status-dropdown" xPosition="before">
+                                <div class="noti-list">
+                                    <ul class="menu">
+                                        <li class="Working-on-it-header mb-1">
+                                            <h6 class="mb-0">Working on it</h6>
+                                        </li>
+                                        <li class="Done-header mb-1">
+                                            <h6 class="mb-0">Done</h6>
+                                        </li>
+                                        <li class="Stuck-header">
+                                            <h6 class="mb-0">Stuck</h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-menu>
+                        </li>
+                    </ul>
+                </td>
+                <td class="text-truncate">
+                    <ul class="list-unstyled order-list">
+                        <li class="avatar avatar-sm" matTooltip="Shashank Bafna"><img class="rounded-circle"
+                                src="assets\images\Ellipse 461.png" alt="user">
+                        </li>
+                    </ul>
+                </td>
+                <td class="p-0 m-0">
+                    <ul>
+                        <li ngbDropdown>
+                            <button mat-icon-button [matMenuTriggerFor]="appDropdownMenupriorirty"
+                                class="priorirty-Dropdown">
+                                Medium
+                            </button>
+                            <mat-menu #appDropdownMenupriorirty="matMenu" class="status-dropdown" xPosition="before">
+                                <div class="noti-list">
+                                    <ul class="menu">
+                                        <li class="Mediumheader mb-1">
+                                            <h6 class="mb-0">Medium</h6>
+                                        </li>
+                                        <li class="High-header mb-1">
+                                            <h6 class="mb-0">High</h6>
+                                        </li>
+                                        <li class="Low-header">
+                                            <h6 class="mb-0">Low</h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </mat-menu>
+                        </li>
+                    </ul>
+                </td>
+                <td>02 nov</td>
+                <td>02 nov</td>
+                <td>00:00</td>
+                <td>00:00</td>
+                <td class="tdrightborder p-0"> <button mat-icon-button [matMenuTriggerFor]="menu" class="header-dropdown">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>Action</button>
+                        <button mat-menu-item>Another action</button>
+                        <button mat-menu-item>Something else here</button>
+                    </mat-menu>
+                </td>
             </tr>
         </tbody>
     </table>

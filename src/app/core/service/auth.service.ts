@@ -18,7 +18,7 @@ export class AuthService {
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
-
+  public API = environment.config.API_URL;
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
@@ -39,11 +39,17 @@ export class AuthService {
         })
       );
   }
-
+ // Login User API old
+ loginUser(userValue) {
+  return this.http.post(`${this.API}/api/accounts/userlogin`, userValue);
+}
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(this.currentUserValue);
     return of({ success: false });
+  }
+    newSendFCM(post) {
+    return this.http.post(`${this.API}/api/notification/addupdatetoken`, post);
   }
 }

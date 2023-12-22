@@ -1,5 +1,4 @@
-
-<table class="tid-table pt-4">
+<!-- <table class="tid-table pt-4">
   <ng-container *ngFor="let row of rows; let index=index; let even=even">
     <tr class="tid-data-row"
       [ngClass]="{'tid-even': even}">
@@ -22,4 +21,252 @@
     </td>
   </tr>
   </ng-container>
+</table> -->
+
+<table class="table table-bordered mt-4">
+  <thead>
+    <tr>
+      <th>Task Id</th>
+      <th>Task Title</th>
+      <th>Status</th>
+      <th>Task Type</th>
+      <th>Assignee</th>
+      <th>Priority</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Est. Time</th>
+      <th>Total Time</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of allTask['data']; let i=index;let l=last">
+      <td>{{task.taskIdNumber}}</td>
+      <td>{{task.taskTitle}}</td>
+      <td class="white-font" [ngStyle]="
+      {'background':  task.status === 'Pending' ?  'radial-gradient(164.67% 110.21% at 21.79% 18.12%,#FF8583 0%, #D33B38 100%)':  'radial-gradient(164.67% 110.21% at 21.79% 18.12%,#FF8583 0%, #D33B38 100%)'  
+      && task.status === 'In Progress' ?  'radial-gradient(164.67% 110.21% at 21.79% 18.12%,#ffd68d 0%,#f29900 100%)' :  'radial-gradient(164.67% 110.21% at 21.79% 18.12%,#ffd68d 0%,#f29900 100%)' 
+      && task.status === 'Resolved' ?  'radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%)' :  'radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%)'
+      && task.status === 'Re Open' ?  'radial-gradient(164.67% 110.21% at 21.79% 18.12%, #C18FFF 0%, #9159D8 100%)' :  'radial-gradient(164.67% 110.21% at 21.79% 18.12%, #C18FFF 0%, #9159D8 100%)'
+      && task.status === 'Closed' ?  'radial-gradient(164.67% 110.21% at 21.79% 18.12%, #44D16C 0%, #1E8E3E 100%)' :  'radial-gradient(164.67% 110.21% at 21.79% 18.12%, #44D16C 0%, #1E8E3E 100%)' 
+      && task.status === 'Pending' ? 'var(--Text-BG, #D3D4DC);' : 'var(--Text-BG, #D3D4DC);'}">{{task.status}}</td>
+      <td><img *ngIf="task.taskType==='Task'" [matTooltip]="task.taskType" src="../../../../../assets/images/task.png" alt="">
+        <img *ngIf="task.taskType==='Bug'" [matTooltip]="task.taskType" src="../../../../../assets/images/bug.png" alt="">
+        <img *ngIf="task.taskType==='Issue'" [matTooltip]="task.taskType" src="assets\images\issue.png" alt="">
+        <img *ngIf="task.taskType==='Deployment'" [matTooltip]="task.taskType" src="assets\images\Deployement.png" alt="">
+        <img *ngIf="task.taskType==='Break'" [matTooltip]="task.taskType" height="24px" src="assets\icons8-cup.gif" alt="">
+        <img *ngIf="task.taskType==='Leave'" [matTooltip]="task.taskType" src="assets\images\Leave.png" alt="">
+        <img *ngIf="task.taskType==='Additional Requirement'" [matTooltip]="task.taskType" src="assets\icons8-add-an-additional-shipping-address-for-delivery-of-items-24.png" alt="">
+        <img *ngIf="task.taskType==='Change Request'" [matTooltip]="task.taskType" src="assets\icons8-receipt-and-change-32.png" alt="">
+      </td>
+      <td>{{task.assignEmployeeName}}</td>
+      <td class="white-font" [ngStyle]="{'background': task.priority === 'Urgent' ? '#EF4444': '#EF4444'  
+      && task.priority === 'High' ? 'radial-gradient(169.54% 106.95% at 21.79% 18.12%, #FF8583 0%, #D33B38 100%)' :  'radial-gradient(169.54% 106.95% at 21.79% 18.12%, #FF8583 0%, #D33B38 100%)' 
+      && task.priority === 'Medium' ? 'radial-gradient(164.67% 110.21% at 21.79% 18.12%, #C18FFF 0%, #9159D8 100%)' :  'radial-gradient(164.67% 110.21% at 21.79% 18.12%, #C18FFF 0%, #9159D8 100%)'
+      && task.priority === 'Low' ? 'radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%)' :  'radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%)' 
+      && task.priority === null ? 'var(--Text-BG, #D3D4DC);' :  'var(--Text-BG, #D3D4DC);'}">{{task.priority}}</td>
+      <td>{{task.startDate | date:'dd MMM y'}}</td>
+      <td>{{task.endDate | date:'dd MMM y'}}</td>
+      <td>{{task.estTime}}</td>
+      <td>{{task.spentTime1}}</td>
+      <td>        <button mat-button [matMenuTriggerFor]="menu" class="header-dropdown">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngIf="isUpdate ===  true && task.isApproved ===  false" (click)="EditPrTask(task.taskId)">Edit Task</button>
+        <button mat-menu-item (click)="delete(task.taskId)" *ngIf="isDeletedPermissionnewemp ===  true && task.isApproved ===  false">Delete Task</button>
+      </mat-menu></td>
+    </tr>
+  </tbody>
 </table>
+
+<ng-template #EditformpopupOpen let-modal>
+  <div class="modal-header" style="background-color: #eee; padding: 10px">
+    <h4 class="modal-title" id="modal-basic-title" style="color: #000">
+      Edit {{TaskType}}
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true" style="color: #000; font-size: 26px">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="upload">
+      <div class="card-content">
+        <div class="card-body">
+          <form [formGroup]="editTask">
+            <div class="row d-flex">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-0">
+                <mat-label style="display: block">Task Title<span class="text-danger">*</span></mat-label>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <input matInput formControlName="TaskTitle" required placeholder="Enter Task Title" />
+                  <!-- <mat-error *ngIf="
+                      task.TaskTitle.errors &&
+                      (task.TaskTitle.dirty ||
+                        task.TaskTitle.touched ||
+                        submitted)
+                    ">
+                    <small style="font-size: 10.5px" *ngIf="task.TaskTitle.errors.required">Task Title Is
+                      Required</small>
+                      <span *ngIf="task.TaskTitle.errors.pattern">Empty space not Allowed</span>
+                  </mat-error> -->
+                </mat-form-field>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0">
+                <mat-label style="display: block">Select Work Type<span class="text-danger">*</span></mat-label>
+<mat-form-field>
+  <mat-select (click)="WorkType($event)" formControlName="TaslType">
+    <div *ngFor="let data of GetTaskType">
+      <mat-option [value]="data.typeId" *ngIf="data.typeId !== 3 && data.typeId !== 0">    
+        <span *ngIf="data.typeId === 1"><img src="../../../../../assets/images/task.png" height="24px" alt="">{{ data.typeName }}</span>
+        <span *ngIf="data.typeId === 2"><img src="../../../../../assets/images/bug.png" height="24px" alt="">{{ data.typeName }}</span>
+        <span *ngIf="data.typeId === 4"><img src="assets\images\Leave.png" height="24px" alt="">{{ data.typeName }}</span>
+        <span *ngIf="data.typeId === 5"><img src="assets\icons8-cup.gif" height="24px" alt="">{{ data.typeName }}</span>
+        <span *ngIf="data.typeId === 6"><img src="assets\images\Deployement.png" height="24px" alt="">{{ data.typeName }}</span>
+        <span *ngIf="data.typeId === 7"><img src="assets\icons8-receipt-and-change-32.png" height="24px" alt="">{{ data.typeName }}</span>
+        <span *ngIf="data.typeId === 8"><img src="assets\icons8-add-an-additional-shipping-address-for-delivery-of-items-24.png" height="24px" alt="">{{ data.typeName }}</span></mat-option>
+      </div>
+    </mat-select>
+</mat-form-field>
+                <!-- <mat-error *ngIf="
+                    task.TaslType.errors &&
+                    (task.TaslType.dirty || task.TaslType.touched || submitted)
+                  ">
+                  <small style="font-size: 10.5px" *ngIf="task.TaslType.errors.required">Work Type Is Required</small>
+                </mat-error> -->
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                <mat-label style="display: block">Select Project<span class="text-danger">*</span></mat-label>
+                <mat-form-field>
+                    <mat-select (click)="selectProject($event)" formControlName="Project">
+                      <mat-option [value]="data.projectId" *ngFor="let data of getAllProject" [disabled]="!data.isTaskCreate">{{ data.projectName }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <mat-error *ngIf="
+                    task.Project.errors &&
+                    (task.Project.dirty || task.Project.touched || submitted)
+                  ">
+                  <small style="font-size: 10.5px" *ngIf="task.Project.errors.required">Selection Project Is
+                    Required</small>
+                </mat-error> -->
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2" >
+                <mat-label style="display: block">Select Milstone</mat-label>
+                <mat-form-field>
+                    <mat-select formControlName="Milstone">
+                      <mat-option [value]="data.sprintId" *ngFor="let data of AllSprintData">{{ data.sprintName }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2" >
+                <mat-label style="display: block">Select Assignee<span class="text-danger">*</span></mat-label>
+                <mat-form-field>
+                    <mat-select formControlName="Assignee">
+                      <mat-option [value]="data.employeeId" *ngFor="let data of GetAllAssignee">{{ data.employeeName }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <mat-error *ngIf="
+                    task.Assignee.errors &&
+                    (task.Assignee.dirty || task.Assignee.touched || submitted)
+                  ">
+                  <small style="font-size: 10.5px" *ngIf="task.Assignee.errors.required">Selection Assignee Is
+                    Required</small>
+                </mat-error> -->
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0" >
+                <mat-label style="display: block">Select Priority<span class="text-danger">*</span></mat-label>
+                <mat-form-field>
+                    <mat-select formControlName="Priority">
+                      <mat-option [value]="data.typeId" *ngFor="let data of GetPriority">{{ data.typeName }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <mat-error *ngIf="
+                    task.Priority.errors &&
+                    (task.Priority.dirty || task.Priority.touched || submitted)">
+                  <small style="font-size: 10.5px" *ngIf="task.Priority.errors.required">Priority Is Required</small>
+                </mat-error> -->
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0" >
+                <mat-label style="display: block">Billable Status<span class="text-danger">*</span></mat-label>
+                <mat-form-field>
+                  <mat-select formControlName="TaskBilling">
+                    <mat-option [value]="data.typeId" *ngFor="let data of BillingStatus">{{ data.typeName }}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+                <!-- <mat-error *ngIf="
+                    task.TaskBilling.errors &&
+                    (task.TaskBilling.dirty ||
+                      task.TaskBilling.touched ||
+                      submitted)
+                  ">
+                  <small style="font-size: 10.5px" *ngIf="task.TaskBilling.errors.required">Priority Is Required</small>
+                </mat-error> -->
+              </div>
+
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-2" >
+                <mat-label style="display: block">Original Estimate</mat-label>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <input matInput formControlName="OriginalEstimate" type="text" value="result" required
+                    (focusout)="myFunction2($event.target)" placeholder="Enter Original Estimate" />
+                  <!-- <mat-error *ngIf="
+                      task.OriginalEstimate.errors &&
+                      (task.OriginalEstimate.dirty ||
+                        task.OriginalEstimate.touched ||
+                        submitted)
+                    ">
+
+                  </mat-error> -->
+                </mat-form-field>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-0" >
+                <mat-label>Enter a date range<span class="text-danger">*</span></mat-label>
+                <mat-form-field appearance="outline">
+                  <mat-date-range-input [rangePicker]="picker5">
+                    <input matStartDate matInput placeholder="Start date" formControlName="Startdate"   />
+                    <input matEndDate matInput placeholder="End date" formControlName="Enddate" />
+                  </mat-date-range-input>
+                  <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker5></mat-date-range-picker>
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-2">
+                <mat-label>Description<span class="text-danger">*</span></mat-label>
+                <textarea class="form-control textareascroll" formControlName="Description"
+                  style="height: 250px"></textarea>
+                <!-- <mat-error *ngIf="task.Description.errors &&(task.Description.dirty ||task.Description.touched ||submitted) ">
+                  <small *ngIf="task.Description.errors.required">Description Is Required</small>
+                </mat-error> -->
+              </div>
+              <div class="col-md-12">
+                <p>(Upload Images Maximum 5)</p>
+                <!-- <input type="file" id="file" #fileInput (change)="multipalfilehandler($event.target.files)" multiple /> -->
+
+                <!-- <div *ngIf="selectedfiles.length > 0" class="mt-2 mb-2 ml-2" style="display: flex">
+                  <div class="ml-2" *ngFor="let item of selectedfiles; let i = index">
+                    <div *ngIf="item != null">
+                      <i class="fa fa-times" aria-hidden="true" style="cursor: pointer" (click)="deleteImage(i)"></i>
+                    </div>
+                    <div class="card-img-top1" *ngIf="item != null">
+                      <img class="displayimg" src="{{ API + '/' + item }}" alt="" />
+                    </div>
+                    <div class="card-img-top1" *ngIf="item == null"></div>
+                  </div>
+                </div> -->
+              </div>
+              <div class="col-md-12 pt-4" style="text-align: center">
+                <button type="reset" class="btn can-btn ml-2" (click)="modal.dismiss('Cross click')">
+                  Cancel
+                </button>
+                &nbsp;
+                <!-- <button type="submit" class="add-btn btn-primary btn mr-2" (click)="updatetaskdata(editTask.value)">
+                  Update {{TaskType}}
+                </button> -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

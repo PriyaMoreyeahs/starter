@@ -20,7 +20,9 @@
   .dark-font-col {
     color: #96a2b4;
   }
-
+.fa-solid{
+  color: #96a2b4;
+}
   .card {
     background: #1a202e;
     border: none;
@@ -1526,6 +1528,9 @@
   }
   .mat-mdc-select-value {
     color: #96a2b4;
+    text-align: left;
+    padding-left: 8px;
+    padding-top: 4px;
   }
   .mdc-text-field--filled:not(.mdc-text-field--disabled) {
     background-color: #181b24;
@@ -1786,4 +1791,34 @@
       color: #96a2b4;
     }
   }
+  .fakeTr{
+    background: #1a202e;
+    height: 55px;
+    border: 3px solid #4d4f50;
+    }
+    .fakeTrbtn{
+      background: #1a202e;
+    height: 53px;
+    border: none;
+    border-left: 3px solid #4d4f50;
+    border-bottom: 3px solid #4d4f50;
+    margin-left: -83px;
+    color: var(--Tect_1, #4A4D53);
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: capitalize;
+    }
+    ::ng-deep .mat-mdc-select-min-line{
+      color: #96a2b4 !important;
+      font-size: 16px;
+     }
+     ::ng-deep .mat-mdc-select-arrow svg{
+       color: #96a2b4 !important;
+     }
+     ::ng-deep .mat-date-range-input-container{
+      // margin-top: 15px;
+        margin-left: 10px;
+    }
 }

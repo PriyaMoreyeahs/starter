@@ -1,4 +1,3 @@
-import { async } from '@angular/core/testing';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -8,7 +7,7 @@ import * as XLSX from 'xlsx';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 import * as FileSaver from 'file-saver';
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,7 @@ export class CRUDFunction {
 
   //#region function to check the validation of th e form
   checkValidation(formValidation) {
-    var approved
+    let approved
     if (formValidation.invalid) {
       approved = false;
       this.toastrService.error(this.errorMessage);
@@ -73,15 +72,15 @@ export class CRUDFunction {
   //#region function to check the file size and the file type before upload
   checkFileSizeAndType(file, type) {
     if (!file[0].type.includes(type)) {
-      let failStatus = true;
+      const failStatus = true;
       this.toastrService.error("Please upload only " + type + " file");
       return failStatus;
     } else if (file[0].size > 5245329) {
-      let failStatus = true;
+      const failStatus = true;
       this.toastrService.error("Please upload file less then 5MB");
       return failStatus;
     } else {
-      let failStatus = false;
+      const failStatus = false;
       return failStatus;
     }
   }
@@ -108,7 +107,7 @@ export class CRUDFunction {
   dataDecoding() {
     let queryData = null;
     this.activatedRoute.queryParams.subscribe((res) => {
-      res.data ? queryData = JSON.parse(atob(res.data)) : '';
+      res['data'] ? queryData = JSON.parse(atob(res['data'])) : '';
     });
     return queryData
   }

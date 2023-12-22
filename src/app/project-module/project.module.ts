@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ProjectRoutingModule } from './project-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '@shared';
@@ -45,7 +45,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {  MatFormFieldModule } from '@angular/material/form-field';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AllProjectsComponent } from './project-board/all-projects/all-projects.component';
 import { AssetsComponent } from './project-board/assets/assets.component';
@@ -61,6 +61,16 @@ import { ProjectMasterComponent } from './project-master/project-master.componen
 import { ProjectReportsComponent } from './project-reports/project-reports.component';
 import { TaskApprovalComponent } from './task-approval/task-approval.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { HttpClientModule } from "@angular/common/http";
+import { DynamicScriptLoaderService } from '@core/service/dynamic-script-loader.service';
+import { ConfigService } from '@config';
+import { RightSidebarService } from '@core/service/rightsidebar.service';
+import { AuthService } from '@core/service/auth.service';
+import { AuthGuard } from '@core/guard/auth.guard';
+import { DropdownfoeEmployeeComponent } from './dropdownfoe-employee/dropdownfoe-employee.component';
+import { EdittaskPopupComponent } from './edittask-popup/edittask-popup.component';
+import { AdvanceTableService } from 'app/advance-table/advance-table.service';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -76,12 +86,17 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     ProjectExpenseComponent,
     ProjectMasterComponent,
     ProjectReportsComponent,
-    TaskApprovalComponent
+    TaskApprovalComponent,
+    DropdownfoeEmployeeComponent,
+    EdittaskPopupComponent
   ],
   imports: [
+    NgSelectModule,
     SharedModule,
+    MatInputModule,
     A11yModule,
      MatExpansionModule,
+     HttpClientModule,
     CdkAccordionModule,
     CdkStepperModule,
     CdkTableModule,
@@ -163,8 +178,48 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     MatSlideToggleModule,
     NgbModule,
     MatTooltipModule,
+    MatFormFieldModule
     // PickerModule,
     // AngularEditorModule,
   ]
+  ,  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // {
+    //   provide: PERFECT_SCROLLBAR_CONFIG,
+    //   useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    // },
+    AdvanceTableService,
+    // { provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor , multi: true },
+    DynamicScriptLoaderService,
+    ConfigService,
+    RightSidebarService,
+    // AppointmentsService,
+    AuthService,
+    AuthGuard,
+    // GiftmanagementService,
+    // {
+    //   provide: MSAL_INSTANCE,
+    //   useFactory: MSALInstanceFactore,
+    // },
+    // MsalService,
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(
+    //           '143003496848-niedqnd0g9g5qscp5dbtekkfpegq95km.apps.googleusercontent.com'
+    //         )
+    //       },
+    //     ],
+    //     onError: (err) => {
+    //
+
+    //     }
+    //   } as SocialAuthServiceConfig,
+    // }
+  ],
 })
 export class ProjectModule { }

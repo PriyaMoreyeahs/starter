@@ -13,7 +13,7 @@ export const ROUTES: RouteInfo[] = [
   // },
   {
     path: "",
-    title: "MENUITEMS.DASHBOARD.TEXT",
+    title: "Home",
     iconType: "feather",
     icon: "home",
     class: "menu-toggle",
@@ -23,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: [
       {
         path: "dashboard/dashboard1",
-        title: "MENUITEMS.DASHBOARD.LIST.DASHBOARD1",
+        title: "dashboard1",
         iconType: "",
         icon: "",
         class: "ml-menu",
@@ -34,7 +34,7 @@ export const ROUTES: RouteInfo[] = [
       },
       {
         path: "dashboard/dashboard2",
-        title: "MENUITEMS.DASHBOARD.LIST.DASHBOARD2",
+        title: "dashboard2",
         iconType: "",
         icon: "",
         class: "ml-menu",
@@ -47,7 +47,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: "advance-table",
-    title: "MENUITEMS.ADVANCE-TABLE.TEXT",
+    title: "advance-table",
     iconType: "feather",
     icon: "trello",
     class: "",

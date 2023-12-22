@@ -123,7 +123,7 @@
     }
 
     .legal {
-      background-color: $theme-white-legal-bg;
+      background: $theme-white-legal-bg;
 
       .copyright {
         a {
@@ -137,7 +137,7 @@
     color: $theme-white-active-color !important;
   }
   .page-item.active .page-link {
-    background-color: $theme-white-active-color;
+    background: $theme-white-active-color;
     border-color: $theme-white-active-color;
     border-radius: 50%;
     margin: 5px;
@@ -151,23 +151,23 @@
   }
 
   .btn-primary {
-    background-color: $theme-white-active-color !important;
+    background: $theme-white-active-color !important;
     color: #fff !important;
     border-color: $theme-white-active-color !important;
     &:hover {
-      background-color: $theme-white-active-color !important;
+      background: $theme-white-active-color !important;
       color: #fff !important;
     }
     &:active {
-      background-color: $theme-white-active-color !important;
+      background: $theme-white-active-color !important;
       color: #fff !important;
     }
     &:focus {
-      background-color: $theme-white-active-color !important;
+      background: $theme-white-active-color !important;
       color: #fff !important;
     }
     &:disabled {
-      background-color: $theme-white-active-color !important;
+      background: $theme-white-active-color !important;
       color: #fff !important;
     }
   }
@@ -245,7 +245,7 @@
     filter: opacity(.5) drop-shadow(0 0 0 #1a202e);  
   }
   .button-color {
-    background-color: $theme-white-active-color !important;
+    background: $theme-white-active-color !important;
     border-radius: 8px;
     padding: 9px 20px;
     justify-content: center;
@@ -267,4 +267,41 @@
 .mat-tab-nav-bar,.mat-tab-header {
   border-bottom: 1px solid rgba(0,0,0,.12)
 }
+}
+.fakeTr{
+  background: #F5F6F9;
+  height: 55px;
+  }
+  .fakeTrbtn{
+    background: #F5F6F9;
+  height: 55px;
+  border: none;
+  border-left: 3px solid #FFF;
+  margin-left: -83px;
+  color: var(--Tect_1, #4A4D53);
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: capitalize;
+  }
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #4691FF !important;
+}
+
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #4691FF !important;
+}
+::ng-deep .mat-mdc-select-min-line{
+  color: #000 !important;
+  font-size: 16px;
+ }
+ ::ng-deep .mat-mdc-select-arrow svg{
+   color: #000 !important;
+ }
+ ::ng-deep .mat-date-range-input-container{
+  // margin-top: 15px;
+    margin-left: 10px;
 }

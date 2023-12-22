@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-project-expense',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./project-expense.component.scss']
 })
 export class ProjectExpenseComponent {
-
+  @Input() item: number;
 }
