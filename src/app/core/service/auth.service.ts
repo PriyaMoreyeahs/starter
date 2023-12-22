@@ -1,61 +1,55 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { BehaviorSubject, of, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../models/user';
+import { environment } from 'environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  API = environment.config.API_URL
-  subject = new Subject<any>()
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+
   constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(
+      JSON.parse(localStorage.getItem('currentUser') || '{}')
+    );
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+  public API = environment.config.API_URL;
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
   }
 
-  ExternalLogins(url) {
-    return this.http.get(`${this.API}/api/accounts/ExternalLogins?returnUrl=${url}`)
-  }
+  login(username: string, password: string) {
+    return this.http
+      .post<User>(`${environment.config.API_URL}/authenticate`, {
+        username,
+        password,
+      })
+      .pipe(
+        map((user) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
 
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+          return user;
+        })
+      );
+  }
+ // Login User API old
+ loginUser(userValue) {
+  return this.http.post(`${this.API}/api/accounts/userlogin`, userValue);
+}
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(this.currentUserValue);
+    return of({ success: false });
   }
-
-  userlogintsf(userValue) {
-    return this.http.post(`${this.API}/api/accounts/userlogintsf`, userValue);
+    newSendFCM(post) {
+    return this.http.post(`${this.API}/api/notification/addupdatetoken`, post);
   }
-
-  userlogin(post) {
-    return this.http.post(`${this.API}/api/accounts/userlogin`, post)
-  }
-
-  newuserlogin(post) {
-    return this.http.post(`${this.API}/api/accounts/newuserlogin`, post)
-  }
-
-  getuserlogindetail(data) {
-    return this.http.post(`${this.API}/api/accounts/getuserlogindetail?token=${data}`, data)
-  }
-
-  newSendFCM(post) {
-    return this.http.post(`${this.API}/api/notification/addupdatetoken`, post)
-  }
-    ///////////////////// Side Bar  ////////////////
-
-    // sendSidebarClick() {
-    //   this.subject.next()
-    // }
-  
-    getSidebarClick() {
-      return this.subject.asObservable()
-    }
-    getmoduleandsubmodule() {
-      return this.http.get(`${this.API}/api/useraccesspermissions/getmodule`);
-    }
-  
-    private logoutsidebar = new BehaviorSubject({ data: false });
-    currentMessage = this.logoutsidebar.asObservable();
-  
-    changeMessage(message: any) {
-      this.logoutsidebar.next(message)
-    }
 }

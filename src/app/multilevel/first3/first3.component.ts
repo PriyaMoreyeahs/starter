@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-first3',
   templateUrl: './first3.component.html',
-  styleUrls: ['./first3.component.sass'],
+  styleUrls: ['./first3.component.scss'],
 })
-export class First3Component implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class First3Component {
+  constructor() {
+    // constructor
+  }
 }

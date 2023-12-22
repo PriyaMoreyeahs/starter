@@ -1,47 +1,36 @@
-import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from "@angular/common/http";
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
+
+import { CoreModule } from "./core/core.module";
+import { SharedModule } from "./shared/shared.module";
+
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MSAL_INSTANCE, MsalService } from "@azure/msal-angular";
-import { IPublicClientApplication, PublicClientApplication } from "@azure/msal-browser";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { LoadingBarRouterModule } from "@ngx-loading-bar/router";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { ClickOutsideModule } from "ng-click-outside";
-import { NgxPaginationModule } from 'ngx-pagination';
-import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule } from "ngx-perfect-scrollbar";
-import { ToastrModule } from "ngx-toastr";
-import { environment } from "src/environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { CoreModule } from "./core/core.module";
+import { HeaderComponent } from "./layout/header/header.component";
+import { PageLoaderComponent } from "./layout/page-loader/page-loader.component";
+import { SidebarComponent } from "./layout/sidebar/sidebar.component";
+import { RightSidebarComponent } from "./layout/right-sidebar/right-sidebar.component";
 import { AuthLayoutComponent } from "./layout/app-layout/auth-layout/auth-layout.component";
 import { MainLayoutComponent } from "./layout/app-layout/main-layout/main-layout.component";
-import { HeaderComponent } from "./layout/header/header.component";
-import { NavSubmenuComponent } from "./layout/nav-submenu/nav-submenu.component";
-import { PageLoaderComponent } from "./layout/page-loader/page-loader.component";
-import { RightSidebarComponent } from "./layout/right-sidebar/right-sidebar.component";
-import { SidebarComponent } from "./layout/sidebar/sidebar.component";
-import { SharedModule } from "./shared/shared.module";
-import { TokenServiceService } from "./shared/tokenServices/token-service.service";
+import { ErrorInterceptor } from "./core/interceptor/error.interceptor";
+import { JwtInterceptor } from "./core/interceptor/jwt.interceptor";
+import { LocationStrategy, HashLocationStrategy } from "@angular/common";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpClient,
+} from "@angular/common/http";
 
-export function MSALInstanceFactory(): IPublicClientApplication {
-  return new PublicClientApplication({
-    auth: {
-      clientId: environment.clientId,
-      redirectUri: environment.redirectUrl,
-    },
-  });
-}
+import { LoadingBarRouterModule } from "@ngx-loading-bar/router";
+import { NgScrollbarModule } from "ngx-scrollbar";
+import { ToastrModule } from "ngx-toastr";
+import { TokenServiceService } from "@shared/services/tokenService/token-service.service";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true,
-  wheelPropagation: false,
-};
-
-export function createTranslateLoader(http: HttpClient): any {
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "assets/i18n/", ".json");
 }
 
@@ -50,22 +39,19 @@ export function createTranslateLoader(http: HttpClient): any {
     AppComponent,
     HeaderComponent,
     PageLoaderComponent,
-    SidebarComponent,
+    SidebarComponent, 
     RightSidebarComponent,
     AuthLayoutComponent,
     MainLayoutComponent,
-    NavSubmenuComponent,
   ],
   imports: [
     BrowserModule,
-    NgbModule,
     BrowserAnimationsModule,
-
     AppRoutingModule,
     HttpClientModule,
-    PerfectScrollbarModule,
-    ClickOutsideModule,
     LoadingBarRouterModule,
+    NgScrollbarModule,
+    ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -76,28 +62,22 @@ export function createTranslateLoader(http: HttpClient): any {
     // core & shared
     CoreModule,
     SharedModule,
-    ToastrModule.forRoot({
-      closeButton: true,
-      timeOut: 15000, // 15 seconds
-      progressBar: true,
-      preventDuplicates: true,
-    }),
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+      provide: MatDialogRef,
+      useValue: {}
     },
-    { provide: HTTP_INTERCEPTORS, useClass: TokenServiceService, multi: true },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
     {
-      provide: MSAL_INSTANCE,
-      useFactory: MSALInstanceFactory,
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenServiceService,
+      multi: true,
     },
-    MsalService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

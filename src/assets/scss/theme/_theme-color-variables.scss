@@ -1,6 +1,6 @@
 ﻿//Theme white
 $theme-white: #fff;
-$theme-white-active-color: #00bcd4;
+$theme-white-active-color: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
 $theme-white-sidemenu-active-color: #ffffff;
 $theme-white-legal-bg: #2c303b;
 $theme-white-bar: #2c303b;
@@ -17,8 +17,10 @@ $theme-white-nav-anchor-opened_focus: rgba(0, 0, 0, 0);
 $theme-white-menu-list-active: rgba(0, 0, 0, 0);
 $theme-white-menu-list-toggled: rgba(0, 0, 0, 0);
 $theme-white-menu-list-submenu: rgba(0, 0, 0, 0);
-$theme-white-sidebar-menu-active: #5783c7;
-$theme-white-sidebar-menu-hover: #5783c7;
+$theme-white-sidebar-menu-active: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
+$theme-white-sidebar-menu-hover: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
+$theme-white-button-color: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
+$theme-white-background: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
 
 //Theme Black
 $theme-black: #1a202e;
@@ -40,6 +42,7 @@ $theme-black-menu-list-toggled: rgba(0, 0, 0, 0);
 $theme-black-menu-list-submenu: rgba(0, 0, 0, 0);
 $theme-black-sidebar-menu-active: #5783c7;
 $theme-black-sidebar-menu-hover: #5783c7;
+$theme-black-button-color: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
 
 //Theme Purple
 $theme-purple: #909de4;
@@ -114,7 +117,7 @@ $theme-green-menu-list-toggled: rgba(0, 0, 0, 0);
 $theme-green-menu-list-submenu: rgba(0, 0, 0, 0);
 
 //Theme Orange
-$theme-orange: #FF6154;
+$theme-orange: #f16735;
 $theme-orange-legal-bg: #fff;
 $theme-orange-bar: #fff;
 $theme-orange-navbar-brand: #fff;

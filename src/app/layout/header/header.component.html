@@ -1,140 +1,164 @@
-  <nav #navbar class="navbar active">
-   <div class="d-flex justify-content-between w-100">
-     <div class="text-align-center">
-      <div style="padding: 14px;cursor: pointer;" >
-        <a (click)="Showcard()"><img src="assets\images\Imagfornav.png" style="cursor: pointer;" width="32" height="32" alt="User"></a>
-      </div>
-    
-      <ul class="nav navbar-nav navbar-right" style="margin-top: -52px;margin-left: 41px;">
-    
-        <!-- <li class="nav-item user_profile" ngbDropdown>
-          <div class="chip dropdown-toggle" ngbDropdownToggle class="nav-notification-icons pt-0">
-            <img src="assets\images\Imagfornav.png" class="user_img" width="32" height="32" alt="User">
-          </div>
-          <div ngbDropdownMenu class="notification-dropdown pullDown">
-            <div class="noti-list" style="position: relative; max-width: 600px; max-height: 300px;" [perfectScrollbar]>
-             <div class="card">
-
-             </div>
-            </div>
-          </div>
-        </li> -->
-        <li class="d-flex gap-3">
-          <a href="#" onClick="return false;" class="bars" (click)="mobileMenuSidebarOpen($event,'overlay-open')"></a>
-          <p class="titleNavbar">MoreYeahs</p>
-          <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
-          <input type="text" class="searchNavbar1" placeholder="Search for employee directory" />
+<nav #navbar class="navbar active">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <ul class="float-start collapse-menu-icon">
+        <li>
+          <button mat-icon-button (click)="mobileMenuSidebarOpen($event,'overlay-open')" class="sidemenu-collapse">
+            <app-feather-icons [icon]="'menu'" [class]="'header-icon'"></app-feather-icons>
+          </button>
         </li>
       </ul>
-     </div>
-      <div class="">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item" ngbDropdown>
-            <button mat-icon-button ngbDropdownToggle class="nav-notification-icons">
-              <i class="material-icons-outlined icon-color">
-                notifications_active
-              </i>
-            </button>
-            <div ngbDropdownMenu class="notification-dropdown pullDown">
-              <div class="noti-list" style="position: relative; max-width: 600px; max-height: 350px;" [perfectScrollbar]>
-                <ul class="menu">
-                  <li class="nfc-header">
-                    <h5 class="mb-0">Notitications</h5>
-                  </li>
-                  <li>
-                    <a href="#" *ngFor="let notification of notifications" onClick="return false;"
-                      [ngClass]="[notification.status]">
-                      <span class="table-img msg-user ">
-                        <i class="material-icons-two-tone nfc-type-icon"
-                          [ngClass]="[notification.color]">{{notification.icon}}</i>
-                      </span>
-                      <span class="menu-info">
-                        <span class="menu-title">{{notification.message}}</span>
-                        <span class="menu-desc mt-2">
-                          <i class="material-icons">access_time</i> {{notification.time}}
+      <ul class="float-start navbar-nav navbar-left">
+        <li class="nav-item btnAppList" ngbDropdown>
+          <button mat-icon-button [matMenuTriggerFor]="appDropdownMenu" class="nav-notification-icons">
+            <app-feather-icons [icon]="'grid'" [class]="'header-icon'"></app-feather-icons>
+          </button>
+          <mat-menu #appDropdownMenu="matMenu" class="notification-dropdown app-dropdown" xPosition="before">
+            <div class="noti-list">
+              <ul class="menu">
+                <li class="nfc-header">
+                  <h5 class="mb-0">Applications</h5>
+                </li>
+                <li>
+                  <div class="row g-0 p-1">
+                    <div class="col-3 text-center"><a routerLink="/apps/chat" class="app-icons">
+                        <img src="assets/images/apps/chat.png">
+                        <p class="tx-12 mb-0">Chat</p>
+                      </a></div>
+                    <div class="col-3 text-center"><a routerLink="/calendar" class="app-icons">
+                        <img src="assets/images/apps/calendar.png">
+                        <p class="tx-12 mb-0">Calendar</p>
+                      </a></div>
+                    <div class="col-3 text-center"><a routerLink="/task" class="app-icons">
+                        <img src="assets/images/apps/task.png">
+                        <p class="tx-12 mb-0">Task</p>
+                      </a></div>
+                    <div class="col-3 text-center"><a routerLink="/email/inbox" class="app-icons">
+                        <img src="assets/images/apps/mail.png">
+                        <p class="tx-12 mb-0">Mail</p>
+                      </a></div>
+                  </div>
+                  <div class="row g-0 p-1">
+                    <div class="col-3 text-center"><a routerLink="/advance-table" class="app-icons">
+                        <img src="assets/images/apps/table.png">
+                        <p class="tx-12 mb-0">Table</p>
+                      </a></div>
+                    <div class="col-3 text-center"><a routerLink="/contacts" class="app-icons">
+                        <img src="assets/images/apps/contact.png">
+                        <p class="tx-12 mb-0">Contact</p>
+                      </a></div>
+                    <div class="col-3 text-center"><a routerLink="/apps/support" class="app-icons">
+                        <img src="assets/images/apps/support.png">
+                        <p class="tx-12 mb-0">Support</p>
+                      </a></div>
+                    <div class="col-3 text-center"><a routerLink="/media/gallery" class="app-icons">
+                        <img src="assets/images/apps/gallery.png">
+                        <p class="tx-12 mb-0">Gallery</p>
+                      </a></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" [ngClass]="isNavbarCollapsed ? '' : 'show'">
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Full Screen Button -->
+        <li class="fullscreen">
+          <button mat-icon-button class="nav-notification-icons" (click)="callFullscreen()">
+            <app-feather-icons [icon]="'maximize'" [class]="'header-icon'"></app-feather-icons>
+          </button>
+        </li>
+        <!-- #END# Full Screen Button -->
+        <li class="nav-item">
+          <button mat-icon-button [matMenuTriggerFor]="languagemenu" class="lang-dropdown nav-notification-icons"> <img
+              *ngIf="flagvalue !== undefined" src="{{flagvalue}}" height="16">
+            <img *ngIf="flagvalue === undefined" src="{{defaultFlag}}" height="16"></button>
+          <mat-menu #languagemenu="matMenu" class="lang-item-menu">
+            <div *ngFor="let item of listLang" class="lang-item">
+              <button mat-menu-item class="dropdown-item lang-item-list"
+                (click)="setLanguage(item.text, item.lang, item.flag)"
+                [ngClass]="{'active': langStoreValue === item.lang}">
+                <img src="{{item.flag}}" class="flag-img" height="12"> <span class="align-middle">{{item.text}}</span>
+              </button>
+            </div>
+          </mat-menu>
+        </li>
+        <!-- #START# Notifications-->
+        <li>
+          <button mat-icon-button [matMenuTriggerFor]="notificationMenu" class="nav-notification-icons">
+            <app-feather-icons [icon]="'bell'" [class]="'header-icon'"></app-feather-icons>
+          </button>
+          <mat-menu #notificationMenu="matMenu" class="nfc-menu">
+            <div class="nfc-header">
+              <h5 class="mb-0">Notitications</h5>
+              <a class="nfc-mark-as-read">Mark all as read</a>
+            </div>
+            <div class="nfc-dropdown">
+              <ng-scrollbar style="height: 350px" visibility="hover">
+                <div class="noti-list header-menu">
+                  <div class="menu">
+                    <div>
+                      <button mat-menu-item *ngFor="let notification of notifications" onClick="return false;"
+                        [ngClass]="[notification.status]">
+                        <span class="table-img msg-user ">
+                          <i class="material-icons-two-tone nfc-type-icon"
+                            [ngClass]="[notification.color]">{{notification.icon}}</i>
                         </span>
-                      </span>
-                      <span class="nfc-close">
-                        <app-feather-icons [icon]="'x'" [class]="'user-menu-icons'"></app-feather-icons>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <a class="nfc-read-more">Read All Notifications</a>
+                        <span class="menu-info">
+                          <span class="menu-title">{{notification.message}}</span>
+                          <span class="menu-desc mt-2">
+                            <i class="material-icons">access_time</i> {{notification.time}}
+                          </span>
+                        </span>
+                        <span class="nfc-close">
+                          <app-feather-icons [icon]="'x'" [class]="'user-menu-icons'"></app-feather-icons>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-scrollbar>
             </div>
-          </li>
-
-          <li class="nav-item user_profile" ngbDropdown>
-            <div class="chip dropdown-toggle" ngbDropdownToggle class="nav-notification-icons pt-0">
-              <img src="{{userImg}}" class="user_img" width="32" height="32" alt="User">
+            <div class="nfc-footer">
+              <a class="nfc-read-all">Read
+                All Notifications</a>
+            </div>
+          </mat-menu>
+        </li>
+        <!-- #END# Notifications-->
+        <li class="nav-item user_profile">
+          <button mat-button [matMenuTriggerFor]="profilemenu">
+            <div class="chip dropdown-toggle" ngbDropdownToggle class="">
               <span>Ella Jones</span>
+              <img src="{{userImg}}" class="user_img" width="25" height="25" alt="User">
             </div>
-            <div ngbDropdownMenu class="notification-dropdown pullDown">
-              <div class="noti-list" style="position: relative; max-width: 600px; max-height: 300px;" [perfectScrollbar]>
-                <ul class="menu">
-                  <li class="body">
-                    <ul class="user_dw_menu">
-                      <li>
-                        <a href="#" onClick="return false;">
-                          <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>Account
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" onClick="return false;">
-                          <app-feather-icons [icon]="'mail'" [class]="'user-menu-icons'"></app-feather-icons>Inbox
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" onClick="return false;">
-                          <app-feather-icons [icon]="'settings'" [class]="'user-menu-icons'"></app-feather-icons>Settings
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0);" (click)="logout()">
-                          <app-feather-icons [icon]="'log-out'" [class]="'user-menu-icons'"></app-feather-icons>Logout
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+          </button>
+          <mat-menu #profilemenu="matMenu" class="profile-menu">
+            <div class="noti-list">
+              <div class="menu ">
+                <div class="user_dw_menu">
+                  <button mat-menu-item class="user-item-list">
+                    <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>Account
+                  </button>
+                  <button mat-menu-item class="user-item-list">
+                    <app-feather-icons [icon]="'mail'" [class]="'user-menu-icons'"></app-feather-icons>Inbox
+                  </button>
+                  <button mat-menu-item class="user-item-list">
+                    <app-feather-icons [icon]="'settings'" [class]="'user-menu-icons'"></app-feather-icons>Settings
+                  </button>
+                  <button mat-menu-item (click)="logout()" class="user-item-list">
+                    <app-feather-icons [icon]="'log-out'" [class]="'user-menu-icons'"></app-feather-icons>Logout
+                  </button>
+                </div>
               </div>
             </div>
-          </li>
-
-        </ul>
-      </div>
-
-   </div>
-            <!-- </div> -->
-
-</nav>
-  <div class="card mega-menu-card" *ngIf="showcard">
-    <p class="p-4">Other Modules</p>
-    <div class="row">
-      <div class="col justify-content-center">
-        <img class="pl-3 module-image" src="assets\images\Home.png" alt="">
-        <p class="module-image pt-2">Home</p>
-      </div>
-      <div class="col justify-content-center">
-        <img class="pl-3 module-image" src="assets\images\Helpdesk.png" alt="">
-        <p class="module-image pt-2">Helpdesk</p>
-      </div>
-      <div class="col justify-content-center">
-        <img class="pl-3 module-image" src="assets\images\Our-Emp.png" alt="">
-        <p class="module-image pt-2">Our Emp</p>
-      </div>
-      <div class="col justify-content-center">
-        <img class="pl-3 module-image" src="assets\images\EFMS.png" alt="">
-        <p class="module-image pt-2">EFMS</p>
-      </div>
-      <div class="col justify-content-center">
-        <img class="pl-3 module-image" src="assets\images\Organization.png" alt="">
-        <p class="pt-2">Organization</p>
-      </div>
-      <div class="col justify-content-center">
-        <img class="pl-3 module-image" src="assets\images\Explore-more.png" alt=""><br>
-        <p class=" pt-2">Explore more</p>
-      </div>
+          </mat-menu>
+        </li>
+        <!-- #END# Tasks -->
+      </ul>
     </div>
   </div>
+</nav>

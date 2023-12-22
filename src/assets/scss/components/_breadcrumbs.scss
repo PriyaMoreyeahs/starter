@@ -4,18 +4,36 @@
  *  Description: This scss file for breadscrumbs style classes
  */
 
-.breadcrumb {
-  background-color: transparent;
-  font-size: 15px;
-  align-items: center;
-  margin: 30px 0 30px;
-  padding: 0px;
-  color: #555;
+.breadcrumb-main {
+  // background-color: transparent;
+  // font-size: 15px;
+  // align-items: center;
+  // margin: 3rem 0 3rem;
+  // padding: 0px;
+  // color: #555;
 
   // &:before {
   //   content: "";
   //   margin: 0;
   // }
+
+  .breadcrumb-title {
+    background-color: transparent;
+    font-size: 15px;
+    align-items: center;
+    margin: 30px 0px;
+    padding: 0px;
+    color: #555;
+  }
+  .breadcrumb-list {
+    background-color: transparent;
+    font-size: 15px;
+    align-items: center;
+    margin: 32px 0px;
+    float: right;
+    color: #555;
+    padding: 0px 5px;
+  }
 
   li {
     display: inline-block;
@@ -56,13 +74,13 @@
     font-weight: 500;
     color: #444444;
     margin-bottom: 0px;
-    &:after {
-      content: "\f105";
-      font-family: "Font Awesome 5 Free";
-      font-size: 18px;
-      font-weight: 900;
-      padding: 0px 5px;
-    }
+    // &:after {
+    //   content: "\f105";
+    //   font-family: "Font Awesome 5 Free";
+    //   font-size: 18px;
+    //   font-weight: 900;
+    //   padding: 0px 5px;
+    // }
     i {
       padding: 0px 5px;
       &:before {

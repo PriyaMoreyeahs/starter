@@ -14,9 +14,6 @@
     .navbar-nav.navbar-right .user_profile span {
       color: #fff;
     }
-    .titleNavbar{
-      color: white;
-    }
   }
   .navbar.active {
     // background-color: $theme-green !important;
@@ -26,14 +23,7 @@
       #10bf52,
       #11998e
     ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to right,
-      #10bf52,
-      #11998e
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(to right, #10bf52, #11998e);
     .nav {
       > li {
         > a {
@@ -44,7 +34,13 @@
     .collapse-menu-icon .mat-icon {
       color: #fff;
     }
-    .navbar-right .mat-icon {
+    .collapse-menu-icon .feather {
+      color: #fff;
+    }
+    .nav-notification-icons .mat-icon {
+      color: #fff;
+    }
+    .nav-notification-icons .feather {
       color: #fff;
     }
   }

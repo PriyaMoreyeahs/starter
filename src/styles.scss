@@ -1,295 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
-
-//  dashboard
-// @import '~bootstrap/dist/css/bootstrap.css';
-@import "~@ng-select/ng-select/themes/default.theme.css";
-
-@font-face {
-  font-family: "Poppins";
-  src: local("Poppins"),
-    url("./assets/fonts/poppins/poppins-v5-latin-regular.ttf") format("truetype");
+table{
+    border-collapse: separate;
 }
-
-.cdk-global-overlay-wrapper,
-.cdk-overlay-container {
-  z-index: 9999 !important;
+.advance-table{
+    border-collapse: separate;
+    border-collapse: separate;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-top: 1px solid #eee;
+    /* border: 1px solid #eee; */
+    border-bottom: 1px solid #eee;
 }
-
-.cardcurve {
-  border-top-left-radius: 80px 80px !important;
-
+.mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead,
+ .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell{
+    border-collapse: separate;
+      border-left: 1px solid #eee;
+      border-right: 1px solid #eee;
+      border-top: 1px solid #eee;
+      /* border: 1px solid #eee; */
+      border-bottom: 1px solid #eee;
+   }
+   .mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: 1px solid rgba(0,0,0,.12) !important;
 }
-
-.ng-select .ng-select-container {
-  height: 50px;
-  overflow-y: hidden;
+.mat-mdc-form-field-subscript-wrapper{
+    visibility: hidden !important;
 }
-
-ng-select .ng-select-container {
-  background: transparent !important;
-}
-
-.ng-select {
-  margin-top: 5px;
-}
-
-.ng-select .ng-select-container:hover {
-  overflow-y: scroll;
-}
-
-.ng-select.ng-select-single .ng-select-container {
-  height: 50px;
-  background: transparent;
-}
-
-.ng-select .ng-select-container::-webkit-scrollbar {
-  display: none;
-}#support_table {
-  border-collapse: separate;
-  border-spacing: 0 5px;
-}
-
-// .cardII14 {
-//   color: var(--b-1, #000c1d);
-//   font-size: 20px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: normal;
-//   text-transform: capitalize;
-// }
-.textareascroll {
-  border-radius: 15px;
-  min-height: 150px !important;
-  overflow-y: auto;
-  resize: none !important;
-}
-
-.textareascroll .form-control {
-  min-height: 150px !important;
-}
-
-.advanced-pie-legend-wrapper {
-  display: none !important;
-}
-
-.subheading_annoucement {
-  color: #00ADD3;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: capitalize;
-}
-
-.postText {
-  border-radius: 75px;
-  //   border: 0.75px solid #000;
-  background: #fff;
-  width: 70%;
-  height: 34px;
-}
-
-.div {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-}
-
-.box {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  border-radius: 100px;
-  top: 0;
-  left: 0;
-
-}.imgtext {
-  position: absolute;
-  transform: translate(15rem, -31rem)
-}
-
-.imgtext1 {
-  position: absolute;
-  transform: translate(5rem, -20rem)
-}
-
-.eventsCard {
-  width: 60%;
-  border-radius: 6px;
-  padding: 1rem;
-  height: 90%;
-}
-
-.eventsCardtext1 {
-  color: #FFF;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: capitalize;
-}
-
-.carousel-indicators li {
-  background-color: black;
-}.innercontent {
-  width: 94vw;
-  // margin: 7% 0 0 8.5%;
-}::ng-deep .chart-legend .legend-labels {
-  line-height: 85%;
-  list-style: none;
-  float: left;
-  overflow-y: auto;
-  overflow-x: hidden;
-  width: max-content !important;
-  background: none !important;
-}
-
-.selectedbtn {
-  width: 222px;
-  color: white;
-  border: 1px solid #00ADD3;
-  background-color: #00ADD3;
-  border-radius: 11px;
-  padding: 5px;
-}
-
-.laptopscreen {
-  flex-wrap: wrap;
-  min-width: 900px;
-}
-
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  display: none !important;
-}
-
-.searchNavbar1 {
-  align-items: flex-start;
-  width: 400px;
-  height: 39px;
-  border: 1px solid #fff !important;
-  background: #fff;
-  border-radius: 15px;
-  padding: 0px 1%;
-  background-image: url("/assets/images/search-normal.png");
-  background-position: right;
-  background-repeat: no-repeat;
-
-}
-
-.containergap {
-  gap: 3.5rem !important;
-  ;
-}
-
-.innergap {
-  gap: 3.5rem !important;
-  ;
-}
-
-.inputform {
-  display: inline-flex;
-  padding: 10px;
-  align-items: center;
-  border-radius: 10px;
-  background: #F2F5F9;
-  border: 1px solid #F2F5F9;
-  width: 500px;
-}
-
-::-webkit-scrollbar .ps__thumb-y {
-  width: 3px;
-  overflow-y: scroll;
-  background: grey;
-  box-shadow: inset 0 0 4px #707070;
-}
-
-::-webkit-scrollbar-thumb .ps__thumb-y {
-  background: #ffff;
-  border-radius: 10px;
-}
-
-::ng-deep .ps__rail-y.ps--clicking {
-  background-color: #999;
-  width: 1px !important;
-}
-
-.close {
-  border: none;
-}
-
-::-webkit-file-upload-button {
-  padding: 1em;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 100px;
-  border: none;
-  font-weight: 600;
-  color: white;
-  padding: 8px 30px 8px 30px;
-}
-
-mat-label {
-  font-weight: 600;
-  font-size: 12px;
-  color: #1E1F22;
-}
-
-.modal-content {
-  form {
-    height: 100vh;
-    overflow-y: hidden;
-    display: grid;
-  }
-
-  form:hover {
-    overflow-y: scroll;
-  }
-
-  form::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.buttonSectionFlexEnd {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.buttonSectionCenter {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-i {
-  cursor: pointer;
-}
-
-.p-text {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  color: #1e1f22;
-}
-
-.fa.disabled,
-.fa[disabled],
-.disabled>.fa,
-[disabled]>.fa {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-.sideSpace{
-  margin-left: -131px;
-}
-.mat-tab-group.mat-primary .mat-ink-bar,
-.mat-tab-nav-bar.mat-primary .mat-ink-bar {
-  background-color: #00ADD3;
+.inputtitle{
+    border: none;
+    height: 61px;
+    width: 98%;
 }

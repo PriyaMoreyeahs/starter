@@ -6,12 +6,10 @@ describe('PermissionComponent', () => {
   let component: PermissionComponent;
   let fixture: ComponentFixture<PermissionComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PermissionComponent ]
-    })
-    .compileComponents();
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [PermissionComponent]
+    });
     fixture = TestBed.createComponent(PermissionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

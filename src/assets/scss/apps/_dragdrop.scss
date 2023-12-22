@@ -1,83 +1,153 @@
-.board {
-  float: left;
+.example-box {
+  width: 200px;
+  height: 200px;
+  border: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  margin-right: 25px;
   position: relative;
-  max-width: 300px;
-  height: auto;
-  margin: 8px;
-  background-color: lightgray;
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-  border-radius: 3px;
-  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-.drop-card {
-  float: left;
-  width: 100%;
-  height: auto;
-  background-color: white;
+  z-index: 1;
+  box-sizing: border-box;
   padding: 10px;
-  margin: 4px 0;
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-  border-radius: 3px;
-  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.example-box:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.example-boundary {
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  border: dotted #ccc 2px;
+}
+
+.example-container2 {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.example-list {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.example-box-small {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
   cursor: move;
-  cursor: grab;
-  header {
-    float: left;
-    width: 100%;
-    padding: 0.5em;
-    background-color: lightgray;
-    text-transform: uppercase;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 3px 3px 0 0;
-  }
+  background: white;
+  font-size: 14px;
 }
-.drop-cardtitle {
-  float: left;
-  width: 100%;
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
-.noselect {
-  //Instead of the line below you could use @include user-select($select)
-  user-select: none;
+
+.cdk-drag-placeholder {
+  opacity: 0;
 }
-.gu-mirror {
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box-small:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging
+  .example-box-small:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-list2 {
+  width: 500px;
+  max-width: 100%;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  display: block;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.example-box2 {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
   cursor: move;
-  cursor: grabbing;
-  position: fixed !important;
-  margin: 0 !important;
-  z-index: 9999 !important;
-  opacity: 1;
-  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-  transform: rotate(5deg);
+  background: white;
+  font-size: 14px;
 }
-.gu-hide {
-  display: none !important;
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
-.gu-unselectable {
-  //Instead of the line below you could use @include user-select($select)
-  user-select: none !important;
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-.gu-transit {
-  opacity: 0.4;
-  filter: alpha(opacity=20);
+
+.example-box2:last-child {
+  border: none;
 }
-#board1 header {
-  background-color: #bc3425;
-  color: white;
+
+.example-list2.cdk-drop-list-dragging .example-box2:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-#board2 header {
-  background-color: #92549e;
-  color: white;
+
+.example-custom-placeholder {
+  background: #ccc;
+  border: dotted 3px #999;
+  min-height: 60px;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-#board3 header {
-  background-color: #00b1cf;
-  color: white;
+
+.example-box-small.cdk-drag-disabled {
+  background: #ccc;
+  cursor: default;
 }
-.drop-cards .is-moving {
-  background-color: white;
-  color: black;
-}
-.cards {
-  padding: 4px 8px;
+.example-handle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ccc;
+  cursor: move;
+  width: 24px;
+  height: 24px;
 }

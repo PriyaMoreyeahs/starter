@@ -6,12 +6,10 @@ describe('KanbanComponent', () => {
   let component: KanbanComponent;
   let fixture: ComponentFixture<KanbanComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ KanbanComponent ]
-    })
-    .compileComponents();
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [KanbanComponent]
+    });
     fixture = TestBed.createComponent(KanbanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

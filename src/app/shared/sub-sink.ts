@@ -1,4 +1,4 @@
-import { SubscriptionLike } from "rxjs";
+import { SubscriptionLike } from 'rxjs';
 
 /**
  * Subscription sink that holds Observable subscriptions
@@ -24,7 +24,9 @@ export class SubSink {
    *   }
    * ```
    */
-  constructor() {}
+  constructor() {
+    // constructor
+  }
 
   /**
    * Add subscriptions to the tracked subscriptions

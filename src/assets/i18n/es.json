@@ -1,95 +1,29 @@
 {
+  "HEADER":{
+    "SEARCH": {
+      "TEXT": "Buscar.."
+    }
+  },
   "MENUITEMS": {
+    "USER":{
+      "POST": "Gerente"
+    },
     "MAIN": {
       "TEXT": "Principal"
     },
     "DASHBOARD": {
-      "TEXT": "Dashboard",
+      "TEXT": "Casa",
       "LIST": {
         "DASHBOARD1": "Tablero 1",
         "DASHBOARD2": "Tablero 2",
-        "DOCTOR-DASHBOARD": "Tablero médico",
-        "PATIENT-DASHBOARD": "Tablero Paciente"
+        "DASHBOARD3": "Tablero 3"
       }
     },
-    "APPOINTMENTS": {
-      "TEXT": "Equipo",
-      "LIST": {
-        "VIEW-APPOINTMENT": "Ver cita",
-        "BOOK-APPOINTMENT": "Reservar una cita",
-        "EDIT-APPOINTMENT": "Editar cita"
-      }
-    },
-    "DOCTORS": {
-      "TEXT": "Doctoras",
-      "LIST": {
-        "ALL-DOCTOR": "Todas las doctores",
-        "ADD-DOCTOR": "Agregar doctora",
-        "EDIT-DOCTOR": "Editar doctora",
-        "PROFILE": "Perfil médico"
-      }
-    },
-    "STAFF": {
-      "TEXT": "Personal",
-      "LIST": {
-        "ALL-STAFF": "Todo el personal",
-        "ADD-STAFF": "Agregar personal",
-        "EDIT-STAFF": "Editar personal",
-        "PROFILE": "Perfil del personal"
-      }
-    },
-    "PATIENTS": {
-      "TEXT": "Pacientes",
-      "LIST": {
-        "ALL-PATIENT": "Todas las pacientes",
-        "ADD-PATIENT": "Agregar paciente",
-        "EDIT-PATIENT": "Editar paciente",
-        "PROFILE": "Perfil del paciente"
-      }
-    },
-    "ROOMS": {
-      "TEXT": "Habitaciones",
-      "LIST": {
-        "ALLOTED-ROOMS": "Habitaciones asignadas",
-        "NEW-ALLOTMENT": "Nueva asignación",
-        "EDIT-ALLOTMENT": "Editar asignación"
-      }
-    },
-    "PAYMENTS": {
-      "TEXT": "Pagos",
-      "LIST": {
-        "ALL-PAYMENTS": "Todos los pagos",
-        "ADD-PAYMENT": "Agregar pago",
-        "INVOICE": "Factura"
-      }
-    },
-    "DOCTOR": {    
-        "DASHBOARD": "Tablero",
-        "APPOINTMENTS": "Equipo",
-        "DOCTORS": "Doctoras",
-        "PATIENTS": "Pacientes",
-        "SETTINGS": "Configuraciones",
-        "CHAT": "Charla"
-    },
-    "PATIENT": {    
-      "TEXT": "Paciente",
-      "DASHBOARD": "Tablero",
-      "APPOINTMENTS": {
-        "TEXT": "Equipo",
-        "LIST": {
-          "TODAY": "Citas de hoy",
-          "UPCOMING": "Próximas citas",
-          "PAST": "Nombramientos anteriores"
-        }
-      },
-      "PRESCRIPTIONS": "Prescripciones",
-      "MEDICAL-RECORD": "Historial médico",
-      "BILLING": "Facturación",
-      "CHAT": "Charla",
-      "SETTINGS": "Configuraciones"
+    "ADVANCE-TABLE": {
+      "TEXT": "Tabla de avance"
     },
     "APPS": {
-      "TEXT": "-- Aplicaciones"
+      "TEXT": "Aplicaciones"
     },
     "CALENDAR": {
       "TEXT": "Calendario"
@@ -99,6 +33,52 @@
     },
     "CONTACTS": {
       "TEXT": "Contactos"
+    },
+    "EMAIL": {
+      "TEXT": "Email",
+      "LIST": {
+        "INBOX": "Bandeja de entrada",
+        "COMPOSE": "Componer",
+        "READ": "Leer el correo electrónico"
+      }
+    },
+    "MORE-APPS": {
+      "TEXT": "Más aplicaciones",
+      "LIST": {
+        "CHAT": "Charla",
+        "SUPPORT": "Apoyo",
+        "DRAG-DROP": "Arrastrar y soltar",
+        "CONTACT-GRID": "Cuadrícula de contacto"
+      }
+    },
+    "COMPONENTS": {
+      "TEXT": "Componentes"
+    },
+    "WIDGETS": {
+      "TEXT": "Widgets",
+      "LIST": {
+        "CHART-WIDGET": "Widget de gráfico",
+        "DATA-WIDGET": "Widget de datos"
+      }
+    },
+    "FORMS": {
+      "TEXT": "Formularios",
+      "LIST": {
+        "CONTROLS": "Controles de formulario",
+        "ADVANCE": "Control avanzado",
+        "EXAMPLE": "Ejemplos de formularios",
+        "VALIDATION": "Validación de formulario",
+        "WIZARD": "Mago",
+        "EDITORS": "Editoras"
+      }
+    },
+    "TABLES": {
+      "TEXT": "Tabellen",
+      "LIST": {
+        "BASIC": "Tablas básicas",
+        "MATERIAL": "Tablas de materiales",
+        "NGX-DATATABLE": "NGX-Datatable"
+      }
     }
   }
 }

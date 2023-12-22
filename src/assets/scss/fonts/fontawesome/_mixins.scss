@@ -19,7 +19,10 @@
 @mixin fa-icon-flip($horiz, $vert, $rotation) {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation}, mirror=1)";
   transform: scale($horiz, $vert);
-}// Only display content to screen readers. A la Bootstrap 4.
+}
+
+
+// Only display content to screen readers. A la Bootstrap 4.
 //
 // See: http://a11yproject.com/posts/how-to-hide-content/
 

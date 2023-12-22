@@ -1,10 +1,5 @@
 <div class="file-drop-area">
-   <div class="d-flex flex-column align-items-center">
-   <button mat-raised-button color="primary" class="btn-sm">Choose file</button>
-     or
-     <span class="">{{file ? file.name : ' drag and drop file here' }}</span>
-   </div>
-  <input class="file-input" type="file" (change)="fileSelect($event?.target?.files)">
-  <span class="d-flex justify-content-center mt-2">{{filename}}</span>
-  
+  <button mat-raised-button color="primary">Choose file</button>
+  <span>{{file ? file.name : ' or drag and drop file here' }}</span>
+  <input class="file-input" type="file">
 </div>

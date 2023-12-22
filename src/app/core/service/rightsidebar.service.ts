@@ -9,5 +9,7 @@ export class RightSidebarService {
     this.sidebarSubject.next(value);
   };
 
-  constructor() {}
+  constructor() {
+    //constructor
+  }
 }

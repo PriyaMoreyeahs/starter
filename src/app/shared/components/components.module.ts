@@ -1,32 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { ButtonComponent } from 'src/app/button/button.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { ExportExcelComponent } from './export-excel/export-excel.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
-import { TableComponent } from './table/table.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NgModule } from "@angular/core";
+import { FileUploadComponent } from "./file-upload/file-upload.component";
+import { BreadcrumbComponent } from "./breadcrumb/breadcrumb.component";
+import { SharedModule } from "../shared.module";
 
 @NgModule({
-  declarations: [FileUploadComponent,
-    BreadcrumbComponent,
-    ButtonComponent,
-    TableComponent,
-    ExportExcelComponent
-  ],
-
-  imports: [
-    CommonModule,
-    MatCheckboxModule
-  ],
-
-  exports: [
-    FileUploadComponent,
-    BreadcrumbComponent,
-    ButtonComponent,
-    TableComponent,
-    ExportExcelComponent
-  ],
-
+  declarations: [FileUploadComponent, BreadcrumbComponent],
+  imports: [SharedModule],
+  exports: [FileUploadComponent, BreadcrumbComponent],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

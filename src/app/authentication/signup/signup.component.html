@@ -15,8 +15,8 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>Username</mat-label>
                   <input matInput formControlName="username" required>
-                  <mat-icon matSuffix>face</mat-icon>
-                  <mat-error *ngIf="authForm.get('username').hasError('required')">
+                  <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>face</mat-icon>
+                  <mat-error *ngIf="authForm.get('username')?.hasError('required')">
                     Username is required
                   </mat-error>
                 </mat-form-field>
@@ -27,8 +27,8 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>Email</mat-label>
                   <input matInput formControlName="email" required>
-                  <mat-icon matSuffix>mail</mat-icon>
-                  <mat-error *ngIf="authForm.get('email').hasError('required') || authForm.get('email').touched">
+                  <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>mail</mat-icon>
+                  <mat-error *ngIf="authForm.get('email')?.hasError('required') || authForm.get('email')?.touched">
                     Please enter a valid email address
                   </mat-error>
                 </mat-form-field>
@@ -39,9 +39,12 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>Password</mat-label>
                   <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required>
-                  <mat-icon matSuffix (click)="hide = !hide">
-                    {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="authForm.get('password').hasError('required')">
+                  <a href="#" onClick="return false;" matSuffix (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon class="material-icons-two-tone color-icon m-3" matSuffix>
+                      {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </a>
+                  <mat-error *ngIf="authForm.get('password')?.hasError('required')">
                     Password is required
                   </mat-error>
                 </mat-form-field>
@@ -52,9 +55,12 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>Confirm Password</mat-label>
                   <input matInput formControlName="cpassword" [type]="chide ? 'password' : 'text'" required>
-                  <mat-icon matSuffix (click)="chide = !chide">
-                    {{chide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="authForm.get('cpassword').hasError('required')">
+                  <a href="#" onClick="return false;" matSuffix (click)="chide = !chide"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="chide">
+                    <mat-icon class="material-icons-two-tone color-icon m-3" matSuffix>
+                      {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </a>
+                  <mat-error *ngIf="authForm.get('cpassword')?.hasError('required')">
                     Confirm Password is required
                   </mat-error>
                 </mat-form-field>
@@ -68,7 +74,8 @@
               </div>
             </div>
             <div class="container-auth-form-btn">
-              <button mat-flat-button color="primary" class="auth-form-btn" [disabled]="!authForm.valid " type="submit">
+              <button mat-raised-button color="primary" class="auth-form-btn" [disabled]="!authForm.valid "
+                type="submit">
                 Register
               </button>
             </div>
@@ -91,6 +98,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

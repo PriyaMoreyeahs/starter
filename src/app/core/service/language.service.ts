@@ -8,18 +8,18 @@ export class LanguageService {
   public languages: string[] = ['en', 'es', 'de'];
 
   constructor(public translate: TranslateService) {
-    let browserLang;
+    let browserLang: string;
     translate.addLangs(this.languages);
 
     if (localStorage.getItem('lang')) {
-      browserLang = localStorage.getItem('lang');
+      browserLang = localStorage.getItem('lang') as string;
     } else {
-      browserLang = translate.getBrowserLang();
+      browserLang = translate.getBrowserLang() as string;
     }
     translate.use(browserLang.match(/en|es|de/) ? browserLang : 'en');
   }
 
-  public setLanguage(lang) {
+  public setLanguage(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);
   }

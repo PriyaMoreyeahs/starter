@@ -6,9 +6,11 @@ export class DirectionService {
   private data = new BehaviorSubject('');
   currentData = this.data.asObservable();
 
-  constructor() {}
+  constructor() {
+    //constructor
+  }
 
-  updateDirection(item: any) {
+  updateDirection(item: string) {
     this.data.next(item);
   }
 }

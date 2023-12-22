@@ -14,9 +14,6 @@
     .navbar-nav.navbar-right .user_profile span {
       color: #fff;
     }
-    .titleNavbar{
-      color: white;
-    }
   }
 
   .navbar.active {
@@ -25,10 +22,6 @@
     background: -webkit-linear-gradient(to right, #1c212d, #1a202e);
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #1c212d, #1a202e);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 
     .nav {
       > li {
@@ -41,8 +34,13 @@
     .collapse-menu-icon .mat-icon {
       color: #fff;
     }
-
-    .navbar-right .nav-notification-icons .mat-icon {
+    .collapse-menu-icon .feather {
+      color: #fff;
+    }
+    .nav-notification-icons .mat-icon {
+      color: #fff;
+    }
+    .nav-notification-icons .feather {
       color: #fff;
     }
   }
@@ -126,13 +124,6 @@
               //   color: $theme-black-sidebar-menu-hover;
               // }
             }
-          }
-
-          .imagesidebar{
-            filter: invert(1);
-          }
-          p{
-            color: white;
           }
         }
 
@@ -229,215 +220,39 @@
       }
     }
   }
-
+  span{
+    color: #96a2b4;
+  }
   .nav-tabs > li > a:before {
     border-bottom: 2px solid $theme-black;
   }
-  .poppins16 {
-    color:  white;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-  }
 
-  .poppins18 {
-    color:  white;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
+  .button-color {
+    background: $theme-black-button-color !important;
+    border-radius: 8px;
+// background: radial-gradient(181.53% 110.51% at 21.79% 18.12%, #7BB1FF 0%, #4691FF 100%);
+    border-radius: 8px;
+    padding: 9px 20px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #ffffff;
   }
-  .poppins6 {
-    color:  white;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
+  .right-button{
+    background: #1a202e;
+    border: none;
   }
-  .cardI14 {
-    color: var(--b-4, #616576);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  .left-arrow{
+    filter: opacity(.5) drop-shadow(0 0 0 rgb(255, 255, 255));  
   }
-  .cardI14_icon{
-    color: var(--b-4, #616576);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  .right-arrow{
+    filter: opacity(.5) drop-shadow(0 0 0 rgb(253, 249, 253));  
   }
-  .cardII14 {
-    color: white;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
+  .dropdownarrow{
+    filter: opacity(.5) drop-shadow(0 0 0 rgb(253, 249, 253));  
   }
-  .timestyle {
-    color: white;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-transform: capitalize;
-  }
-  .polltext {
-    color: white;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-  }
-  .textannoucement {
-    color: white;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-  }
-  .textannoucement1 {
-      color:  white;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
-      text-transform: capitalize;
-  }
-  .testfooter {
-    color: white;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-  }
-  .text-specialday{
-  color: white;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  text-transform: capitalize;
-  // opacity: 0.5;
-  }
-  .eventsCardtext {
-    color: white;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-  }
-
-  .countText{
-    color: white;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-     }
-
-   option {
-    color: white;
-    position: absolute;
-    background-color:black;
-  }
-  .graphleaverh{
-    color: white;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-transform: capitalize;
-
-  }
-  .card{
-    p{
-      color: white;
-    }
-  }
-  .fa {
-    color: white;
-    font-size: 16px;
-    }
-    .submit:active{
-      box-shadow: none;
-      transform: translateY(4px);
-    }
-    .submit {
-      background: #00ADD3;
-      color: white;
-      border: 1px solid #00ADD3;
-      border-radius: 11px;
-      font-weight: 500;
-      // box-shadow: 6px 6px 6px -3px grey;
-      padding: 8px;
-      justify-content: center
-
-    }
-    .clear {
-      background: white;
-      color: rgb(70, 145, 255);
-      border: 1px solid rgb(70, 145, 255);
-      border-radius: 11px;
-      font-weight: 500;
-      padding: 8px;
-      justify-content: center
-    }
-    .view {
-      background: rgb(255, 165, 160);
-      color: white;
-      border: 1px solid rgb(255, 165, 160);
-      border-radius: 7px;
-      font-weight: 600;
-      padding: 8px;
-      justify-content: center
-    }
-    .arrow-div {
-      position: relative;
-      height: 76px;
-      // border: 1px solid #f0f0f0;
-    }
-  .divlist{
-      position: relative;
-      height: 76px;
-      // border: 1px solid #f0f0f0;
-    }
-
-    .arrow-div::before {
-      height: 46px;
-    width: 178px;
-    border-left: 3px solid #00ADD3;
-    background: #DEF9FF;
-      position: absolute;
-      top: 0px;
-      right: -3px;
-      transform: rotate(180deg);
-      border-width: 35px;
-      border-style: solid;
-    }
-    .hoversidemenu{
-      text-transform: uppercase;
-      font-size: 14px !important;
-      color: rgba(97, 101, 118, 1) !important;
-  }
-  .hoversidemenu:hover{
-
-      text-transform: uppercase;
-      font-size: 14px !important;
-      color: rgba(0, 0, 0, 1) !important;
-      font-style: normal;
-      font-weight: bold;
-      border-bottom: 3px solid #00ADD3;
-      background: var(--white, #FFF);
-  }
-
+  .navbar.active {
+    background :$theme-white-background !important;
 }
 
 /*Logo Header Background Color*/
@@ -447,5 +262,6 @@
     border-right: 1px solid #323538;
   }
 
+  
 }
-
+}

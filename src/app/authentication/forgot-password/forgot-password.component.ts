@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent implements OnInit {
-  authForm: UntypedFormGroup;
+  authForm!: UntypedFormGroup;
   submitted = false;
-  returnUrl: string;
+  returnUrl!: string;
   constructor(
     private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,

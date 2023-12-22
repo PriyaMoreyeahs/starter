@@ -6,12 +6,10 @@ describe('DeletedTaskComponent', () => {
   let component: DeletedTaskComponent;
   let fixture: ComponentFixture<DeletedTaskComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ DeletedTaskComponent ]
-    })
-    .compileComponents();
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [DeletedTaskComponent]
+    });
     fixture = TestBed.createComponent(DeletedTaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

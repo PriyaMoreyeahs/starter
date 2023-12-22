@@ -3,44 +3,8 @@
  *  Author     : RedStar Template
  *  Description: This scss file for media queries classes
  */
-@media (max-width: 1169px) {
-  .sidemenu-collapse {
-    display: none !important;
-  }
-  section.content {
-    margin: 3 15px 0 0px;
-  }
-  .search-box {
-    margin-left: 25px;
-  }
-  .side-closed.submenu-closed .navbar-header {
-    width: 260px !important;
-    .navbar-brand span {
-      display: inline-block !important;
-    }
-  }
-}
-@media (max-width: 800px) {
-  .responsive_table {
-    overflow-x: auto !important;
-  }
 
-  .mat-table {
-    min-width: 800px;
-  }
-}
-
-@media (max-width: 799px) {
-  .navbar {
-    .search-box {
-      margin-left: 20px;
-    }
-    .nav > li > a {
-      padding: 10px 10px;
-    }
-  }
-}
-@media (min-width: 768px) {
+@media (min-width: 1281px) {
   .navbar-header {
     float: left;
   }
@@ -69,135 +33,104 @@
       }
     }
   }
+}
 
-  .container > {
-    .navbar-header {
-      margin-right: 0;
-      margin-left: 0;
-    }
-    .navbar-collapse {
-      margin-right: 0;
-      margin-left: 0;
-    }
-  }
-  .container-fluid > {
-    .navbar-header {
-      margin-right: 0;
-      margin-left: 0;
-    }
-    .navbar-collapse {
-      margin-right: 0;
-      margin-left: 0;
-    }
-  }
-  .navbar > {
-    .container .navbar-brand {
-      margin-left: -15px;
-    }
-    .container-fluid .navbar-brand {
-      margin-left: -15px;
-    }
-  }
+@media (max-width: 1025px) {
+  // .sidemenu-collapse {
+  //   display: none !important;
+  // }
 }
-.container > {
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
   .navbar-header {
-    margin-right: -15px;
-    margin-left: -15px;
+    float: left;
+  }
+  .navbar-toggle {
+    display: none;
   }
   .navbar-collapse {
-    margin-right: -15px;
-    margin-left: -15px;
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+    &.collapse {
+      display: block !important;
+      height: auto !important;
+      padding-bottom: 0;
+      overflow: visible !important;
+    }
   }
-}
-.container-fluid > {
-  .navbar-header {
-    margin-right: -15px;
-    margin-left: -15px;
-    border-right: 1px solid #f2f4f9;
+  .navbar-toggle {
+    display: none;
   }
-  .navbar-collapse {
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-}
-@media (max-width: 767px) {
-  .navbar {
-    height: auto;
-    > .container,
-    > .container-fluid {
-      .navbar-brand {
-        margin-left: 30px;
-        width: 88%;
-        margin-right: 0;
+  .navbar-nav {
+    float: left;
+    margin: 0;
+    > li {
+      float: left;
+      > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
       }
     }
+  }
+}
 
-    .navbar-toggle {
-      float: right;
+/* 
+  ##Device = Tablets, Ipads 
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  section.content {
+    margin: 55px 15px 0 15px;
+    .content-block {
+      padding: 41px 10px 0px 12px;
     }
-
-    .nav-left-menu {
-      display: none;
+  }
+  .rtl {
+    .content-block {
+      padding: 41px 12px 0px 10px !important;
     }
+  }
 
+  .navbar {
+    width: calc(100% - 4rem) !important;
+    left: 0px !important;
+    height: auto;
+    .navbar-collapse {
+      display: block;
+    }
+    .collapse-menu-icon {
+      display: block !important;
+    }
     .navbar-right {
       .fullscreen {
         display: none;
       }
     }
-
-    .navbar-header {
-      display: inline-block;
-      // margin-bottom: -25px;
-      width: calc(100% + 30px);
-      float: left;
-    }
-
     .nav {
       > li {
         display: inline-block;
+        top: 0px !important;
         > a {
-          padding: 13px 15px 8px 15px;
+          // padding: 13px 15px 8px 15px;
           &.js-right-sidebar {
             padding: 9px 8px 8px 15px;
           }
         }
       }
     }
-
-    .navbar-nav {
-      // margin-top: -10px;
-      margin-bottom: 1px;
-      margin-left: -7px;
-
-      .open {
-        .dropdown-menu {
-          background-color: #fff;
-          position: absolute;
-        }
-      }
-    }
-
-    .dropdown-menu {
-      margin-left: -50px;
-    }
   }
-  .side-closed.submenu-closed .navbar-header {
-    width: calc(100% + 30px) !important;
+  .navbar-brand {
+    margin-left: 0px !important;
   }
-  .side-closed.submenu-closed .navbar-header .navbar-brand span {
-    display: inline-block !important;
-  }
-  .dt-buttons {
-    float: none !important;
-    text-align: center;
-    margin-bottom: 15px;
+  .nav-toggle {
+    display: none !important;
   }
 
-  .panel-switch-btn {
-    top: 12px;
-    right: 0 !important;
-  }
   .rtl {
     .navbar {
       .navbar-toggle {
@@ -210,139 +143,223 @@
       }
     }
   }
-  section.content,
-  body.ls-closed section.content {
-    margin-right: 0px;
-    margin-left: 0px;
-  }
 }
-@media (max-width: 600px) {
-  .navbar {
-    > .container,
-    > .container-fluid {
-      .navbar-brand {
-        /*width: 86%;*/
-      }
-    }
-    .navbar-header {
-      margin-bottom: 0;
-    }
-    .navbar-toggle:before {
-      margin-top: 2px;
-      float: left;
-    }
-    .nav-notification-icons {
-      margin-top: 7px;
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles 
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  section.content {
+    margin: 55px 15px 0 15px;
+    .content-block {
+      padding: 41px 10px 0px 12px;
     }
   }
-  .ls-closed .bars:after,
-  .ls-closed .bars:before {
-    margin-top: 2px;
-  }
-}
-@media (max-width: 500px) {
-  .navbar-nav {
-    &.nav {
-      .dropdown-menu {
-        width: 245px;
-        right: -80px;
-        &::before {
-          right: 95px;
-        }
-        &::after {
-          right: 96px;
-        }
-      }
-      .user_profile {
-        .dropdown-menu {
-          &::before {
-            right: 19px;
-          }
-          &::after {
-            right: 20px;
-          }
-        }
-      }
+  .rtl {
+    .content-block {
+      padding: 41px 12px 0px 10px !important;
     }
   }
   .navbar {
-    > .container,
-    > .container-fluid {
-      .navbar-brand {
-        margin-left: 28px;
-        width: 84%;
+    width: calc(100% - 4rem) !important;
+    left: 0px !important;
+    height: auto;
+    .navbar-collapse {
+      display: block;
+    }
+    .collapse-menu-icon {
+      display: block !important;
+    }
+    .navbar-right {
+      .fullscreen {
+        display: none;
       }
     }
-  }
-  .breadcrumb-chart {
-    margin: 0 0 0 20px;
-  }
-  .search-box {
-    display: none;
-  }
-  full-calendar > div.fc-toolbar {
-    display: block !important;
-  }
-}
-@media (max-width: 420px) {
-  .navbar {
-    > .container,
-    > .container-fluid {
-      .navbar-brand {
-        width: 79%;
-      }
-    }
-  }
-}
-@media (max-width: 350px) {
-  .navbar {
     .nav {
       > li {
+        display: inline-block;
         > a {
-          padding: 13px 10px 8px 10px;
+          // padding: 13px 15px 8px 15px;
           &.js-right-sidebar {
-            padding: 9px 10px 8px 10px;
+            padding: 9px 8px 8px 15px;
           }
         }
       }
-      .user_profile {
-        .dropdown-toggle {
-          padding: 7px 0px 9px 10px;
+    }
+  }
+  .navbar-brand {
+    margin-left: 0px !important;
+  }
+  .nav-toggle {
+    display: none !important;
+  }
+  .btnAppList {
+    display: none !important;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  section.content {
+    margin: 55px 15px 0 15px;
+    .content-block {
+      padding: 41px 10px 0px 12px;
+    }
+  }
+  .rtl {
+    .navbar-nav.navbar-right {
+      padding-right: 0px;
+    }
+    section.content {
+      margin: 55px 15px 0 15px;
+      .content-block {
+        padding: 41px 12px 0px 10px !important;
+      }
+    }
+  }
+  .navbar {
+    width: calc(100% - 4rem) !important;
+    left: 0px !important;
+    height: auto;
+    .navbar-collapse {
+      display: block;
+    }
+    .collapse-menu-icon {
+      display: block !important;
+    }
+    .navbar-right {
+      .fullscreen {
+        display: none;
+      }
+    }
+    .nav {
+      > li {
+        display: inline-block;
+        > a {
+          // padding: 13px 15px 8px 15px;
+          &.js-right-sidebar {
+            padding: 9px 8px 8px 15px;
+          }
         }
       }
     }
-    > .container-fluid {
-      .navbar-brand {
-        margin-left: 25px;
+  }
+  .navbar-brand {
+    margin-left: 0px !important;
+  }
+  .nav-toggle {
+    display: none !important;
+  }
+  .btnAppList {
+    display: none !important;
+  }
+}
+@media (min-width: 281px) and (max-width: 364px) {
+  section.content {
+    margin: 155px 15px 0 15px;
+    .content-block {
+      padding: 41px 10px 0px 12px;
+    }
+  }
+  .rtl {
+    section.content {
+      margin: 155px 15px 0 15px !important;
+      .content-block {
+        padding: 41px 12px 0px 10px !important;
       }
     }
   }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
   .navbar {
-    > .container,
-    > .container-fluid {
-      .navbar-brand {
-        margin-left: 20px;
+    width: calc(100% - 4rem) !important;
+    left: 0px !important;
+    height: 160px !important;
+    .navbar-collapse {
+      display: block;
+    }
+    .collapse-menu-icon {
+      display: block !important;
+    }
+    .navbar-right {
+      .fullscreen {
+        display: none;
+      }
+    }
+    .nav {
+      > li {
+        display: inline-block;
+        > a {
+          // padding: 13px 15px 8px 15px;
+          &.js-right-sidebar {
+            padding: 9px 8px 8px 15px;
+          }
+        }
       }
     }
   }
+  .navbar .container-fluid,
+  .navbar .container {
+    height: 160px !important;
+  }
 }
-
-@media (min-width: 992px) and (max-width: 1169px) {
+@media (max-width: 280px) {
+  section.content {
+    margin: 155px 15px 0 15px;
+    .content-block {
+      padding: 41px 10px 0px 12px;
+    }
+  }
+  .rtl {
+    section.content {
+      margin: 155px 15px 0 15px !important;
+      .content-block {
+        padding: 41px 12px 0px 10px !important;
+      }
+    }
+  }
   .navbar {
-    > .container,
-    > .container-fluid {
-      .navbar-brand {
-        margin-left: 20px;
+    width: calc(100% - 4rem) !important;
+    left: 0px !important;
+    height: 160px !important;
+    .navbar-collapse {
+      display: block;
+    }
+    .collapse-menu-icon {
+      display: block !important;
+    }
+    .navbar-right {
+      .fullscreen {
+        display: none;
+      }
+    }
+    .nav {
+      > li {
+        display: inline-block;
+        > a {
+          // padding: 13px 15px 8px 15px;
+          &.js-right-sidebar {
+            padding: 9px 8px 8px 15px;
+          }
+        }
       }
     }
   }
-}
-
-@media (min-width: 1170px) and (max-width: 1999px) {
-}
-
-@media (min-width: 1200px) {
+  .navbar-brand {
+    margin-left: 0px !important;
+  }
+  .nav-toggle {
+    display: none !important;
+  }
+  .btnAppList {
+    display: none !important;
+  }
+  .navbar .container-fluid,
+  .navbar .container {
+    height: 160px !important;
+  }
 }

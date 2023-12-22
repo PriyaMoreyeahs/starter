@@ -22,6 +22,11 @@
     font-size: 25px;
   }
 }
+.contact-details {
+  .mat-mdc-dialog-content {
+    max-height: unset;
+  }
+}
 .contact-photo {
   float: left;
   width: 100%;
@@ -92,11 +97,12 @@
 }
 
 .contact-details-name {
-  font-size: 25px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 500;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  letter-spacing: 1px;
 }
 
 .contact-details-field {
@@ -123,7 +129,4 @@
     height: 35px;
     width: 35px;
   }
-}
-.contact-details-heading {
-  margin: 0px 10px;
 }

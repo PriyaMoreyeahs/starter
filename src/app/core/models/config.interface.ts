@@ -9,6 +9,4 @@ export interface InConfiguration {
       backgroundColor: string;
     };
   };
-}//  export interface SvgConfiguaration {
-
-//  }
+}

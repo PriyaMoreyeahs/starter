@@ -6,12 +6,10 @@ describe('SprintComponent', () => {
   let component: SprintComponent;
   let fixture: ComponentFixture<SprintComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ SprintComponent ]
-    })
-    .compileComponents();
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [SprintComponent]
+    });
     fixture = TestBed.createComponent(SprintComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

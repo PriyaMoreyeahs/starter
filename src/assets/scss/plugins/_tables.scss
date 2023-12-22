@@ -1,33 +1,36 @@
 ﻿/*
  *  Document   : _tables.scss
- *  Author     : RedStar Template
+ *  Author     : RedStar Template 
  *  Description: This scss file for tables style classes
  */
-
-// ngx-datatables material theme import
-// @import "~@swimlane/ngx-datatable/index.css";
-// @import "~@swimlane/ngx-datatable/themes/material.css";
-// @import "~@swimlane/ngx-datatable/assets/icons.css";
-
-table{
-  border-spacing: 3px;
+ table {
+  display: table;
   border-collapse: separate;
-}
-
-.table {
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 3px;}
+ .table {
   tbody {
+    border-top: none !important;
     tr {
       td,
       th {
         padding: 10px;
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        background: #F5F6F9;
+        border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
         vertical-align: middle;
-        height: 48px;
-        background-color:  #F5F6F9;
-        font-size: 13px;
+ text-align: center;
         ul {
           margin: 0;
+        }
+        .tbl-user-img-small {
+          margin: 0px 5px;
+          border-radius: 5px;
+          height: 30px;
+          width: 30px;
         }
       }
     }
@@ -37,7 +40,6 @@ table{
       th {
         background-color: #1f91f3;
         color: #fff;
-        height: 48px;
       }
     }
 
@@ -46,7 +48,6 @@ table{
       th {
         background-color: #2b982b;
         color: #fff;
-        height: 48px;
       }
     }
 
@@ -55,7 +56,6 @@ table{
       th {
         background-color: #00b0e4;
         color: #fff;
-        height: 48px;
       }
     }
 
@@ -64,7 +64,6 @@ table{
       th {
         background-color: #ff9600;
         color: #fff;
-        height: 48px;
       }
     }
 
@@ -73,51 +72,61 @@ table{
       th {
         background-color: #fb483a;
         color: #fff;
-        height: 48px;
       }
     }
   }
 
   thead {
-    background-color: #FFFF;
     tr {
       th {
-        padding: 10px;
-        border-bottom: 1px solid #FFFF;
-        background-color:  #F5F6F9;
-        height: 48px;
+        padding: 0 10px;
+        height: 50px;
+        vertical-align: middle;
+        background: #F5F6F9;
+        color: #232529;
+        font-weight: 500;
+        font-size: 16px;
+        border: none;
+        font-style: 'Poppins';
       }
     }
   }
 
   .tbl-pdf {
     color: #f96332;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
   }
+  .tbl-action-btn {
+    height: 40px;
+    width: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
+
 .table-bordered {
+  border: none;
+
   tbody {
     tr {
       td,
       th {
         padding: 10px;
-        border: 1px solid #FFFF;
-        background-color:  #F5F6F9;
-        height: 48px;
+        border: none;
+        font-style: 'Poppins';
+        font-size: 14px;
+        font-weight: 400;
       }
     }
   }
 
   thead {
-    background-color: #FFFF;
-    background-color:  #F5F6F9;
     tr {
       th {
-        padding: 10px;
-        border: 1px solid #FFFF;
-        background-color:  #F5F6F9;
-        height: 48px;
+        padding: 6px 0px 0 0;
+        border: none;
+        text-align: center;
       }
     }
   }
@@ -178,7 +187,6 @@ table{
     background-color: #ff9600;
   }
 }
-
 .btn-tbl-confirm {
   background-color: #3fa3f3;
   height: 30px !important;
@@ -201,7 +209,6 @@ table{
     background-color: #62b5f8;
   }
 }
-
 .btn-tbl-reject {
   background-color: #f96333;
   height: 30px !important;
@@ -226,17 +233,21 @@ table{
 }
 
 .tbl-fav-edit {
-  height: 20px !important;
-  width: 20px !important;
   color: #6777ef;
+  display: inline !important;
+  .feather {
+    height: 20px !important;
+    width: 20px !important;
+  }
 }
-
 .tbl-fav-delete {
-  height: 20px !important;
-  width: 20px !important;
   color: #ff5200;
+  display: inline !important;
+  .feather {
+    height: 20px !important;
+    width: 20px !important;
+  }
 }
-
 .avatar {
   position: relative;
   width: 30px;
@@ -282,7 +293,7 @@ table{
     box-shadow: 0 2px 10px 0 rgba(107, 111, 130, 0.3);
   }
 
-  +li {
+  + li {
     margin-left: -14px;
   }
 
@@ -477,8 +488,8 @@ tr.group:hover {
       height: 45px;
       padding: 8px 8px 8px 50px;
       width: 250px;
-      background: #ffffff;
-      transition: background 0.2s, width 0.2s;
+      background: #F3F3F3;
+      // transition: background 0.2s, width 0.2s;
 
       &:hover {
         background: #fffefe;
@@ -566,27 +577,73 @@ tr.group:hover {
 }
 
 .materialTableHeader {
-  padding: 10px 20px;
   -webkit-box-align: center;
   align-items: center;
-  border-color: #e6e9ed;
-  background-color: #ebebee;
-  height: 70px;
-  min-width: 800px;
+  border-color: #fff;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  // min-width: 800px;
 
-  .header-buttons {
-    right: 20px;
-    padding: 6px 8px 8px 8px;
+  .left {
+    flex: 35%;
+    height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+  }
+  .center {
+    flex: 40%;
+    height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .right {
+    flex: 10%;
+    height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .tbl-export-btn {
     float: right;
+    margin: 0px 15px;
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
 
     li {
       display: inline-block;
+      position: relative;
     }
   }
 
   .header-buttons-left {
     list-style: none;
-    padding-top: 3px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .tbl-search-box {
+      position: relative;
+      margin-left: 10px;
+    }
+    .tbl-title {
+      vertical-align: middle;
+      margin-left: 20px;
+
+      h2 {
+        font-weight: 500;
+      }
+    }
+    .tbl-header-btn {
+      position: relative;
+    }
 
     li {
       display: inline-block;
@@ -615,11 +672,10 @@ tr.group:hover {
       height: 45px;
       padding: 8px 8px 8px 50px;
       width: 250px;
-      background: #ffffff;
-      transition: background 0.2s, width 0.2s;
+      background: #F3F3F3;
 
       &:hover {
-        background: #fffefe;
+        background: #F3F3F3;
       }
 
       // &:focus {
@@ -630,6 +686,29 @@ tr.group:hover {
       //     background: #f7f7f7;
       //   }
       // }
+    }
+  }
+
+  .header-buttons-right {
+    text-align: right;
+    list-style: none;
+    height: 100%;
+    margin: 0px 10px;
+
+    .tbl-header-btn {
+      position: relative;
+      top: 12px;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #5b626b;
     }
   }
 
@@ -644,18 +723,15 @@ tr.group:hover {
 .tbl-checkbox label {
   margin-bottom: 0px;
 }
-
 .column-nowrap {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .table-tab a {
   background-color: #e2e2e2 !important;
   color: #868788 !important;
   border-radius: 30px;
-
   &.active {
     background-color: #7274e2 !important;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 4px 13px -11px #7197b5;
@@ -663,7 +739,6 @@ tr.group:hover {
     border-radius: 30px;
   }
 }
-
 .app-list {
   display: flex;
   flex-direction: row;
@@ -673,16 +748,13 @@ tr.group:hover {
   padding: 10px;
   margin-bottom: 10px;
   background: #f9f9f9;
-
   img {
     margin: 0px 10px;
   }
-
   .set-flex {
     flex: 1;
   }
 }
-
 .lecture-list {
   display: flex;
   flex-direction: row;
@@ -693,7 +765,6 @@ tr.group:hover {
   margin-bottom: 10px;
   background: #f6f4ff;
 }
-
 .report-list {
   display: flex;
   align-items: center;
@@ -701,28 +772,23 @@ tr.group:hover {
   padding: 12px 12px;
   border: 1px dashed #bfc9d4;
   border-radius: 6px;
-
   .file-style {
     font-size: 20px;
     margin: 0px 10px;
   }
-
   .ms-auto {
     margin-right: 10px;
     cursor: pointer;
-
     i {
       padding-right: 10px;
     }
   }
 }
-
 .patient-group-list {
   display: flex;
   align-items: center;
   padding: 12px 12px;
   border-radius: 6px;
-
   .lbl-bedge {
     padding: 10px;
     margin: 0px 5px;
@@ -734,7 +800,6 @@ tr.group:hover {
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
-
     .lbl-bedge-title {
       color: #ffffff;
       display: flex;
@@ -751,21 +816,18 @@ tr.group:hover {
     font-weight: 500;
   }
 }
-
 .tbl-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
 }
-
 .doc-file-type {
   .d-flex {
     margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 1px solid #d5dadb;
   }
-
   .img-icon {
     width: 46px;
     height: 46px;
@@ -775,35 +837,28 @@ tr.group:hover {
     text-align: center;
     margin: 0px 15px;
   }
-
   .set-flex {
     display: block;
     color: #000;
     height: 30px;
   }
-
   .ms-auto {
     margin-right: 10px;
     cursor: pointer;
   }
 }
-
 .primary-rgba {
   background-color: rgba(110, 129, 220, 0.1);
 }
-
 .success-rgba {
   background-color: rgba(95, 194, 126, 0.1);
 }
-
 .danger-rgba {
   background-color: rgba(244, 68, 85, 0.1);
 }
-
 .info-rgba {
   background-color: rgba(114, 208, 251, 0.1);
 }
-
 .timetable-block {
   border-radius: 4px;
   border: 1px solid #f4f4f4;
@@ -815,17 +870,67 @@ tr.group:hover {
     0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
   background: #ffffff;
 }
-
 .medicine-list td {
   padding: 0.4rem;
 }
-
-mat-cell>span.truncate-text {
+mat-cell > span.truncate-text {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
-
 .export-button {
   cursor: pointer;
+  img {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-label {
+    width: 100px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .advance-table .mdc-data-table__header-row {
+    display: none;
+  }
+
+  .advance-table .mdc-data-table__row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+    display: grid;
+  }
+  mat-cell:first-of-type,
+  mat-header-cell:first-of-type,
+  mat-footer-cell:first-of-type {
+    padding-left: 10px;
+  }
+  .flex-item-right,
+  .flex-item-left {
+    flex: 100%;
+  }
+  .tbl-col-width-per-6 {
+    max-width: 100%;
+  }
+  .tbl-col-width-per-7 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .materialTableHeader .header-buttons-left input.search-field {
+    width: 140px;
+  }
+}
+@media (max-width: 300px) {
+  .materialTableHeader .header-buttons-left input.search-field {
+    width: 100px;
+  }
 }

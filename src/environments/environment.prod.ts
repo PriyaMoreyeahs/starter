@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   // apiUrl: 'http://localhost:4200',
   // API_URL: 'http://192.168.1.117:8091',
-  API_URL: 'http://192.168.1.50:8086', // new Dev
+  API_URL: 'http://192.168.1.128',// new Dev
   // API_URL: 'http://192.168.1.117:8050',  // Harshit sir
   // API_URL: 'http://192.168.1.117:8050',
   // API_URL: 'http://192.168.1.50:8086',

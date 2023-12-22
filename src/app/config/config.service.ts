@@ -5,7 +5,7 @@ import { InConfiguration } from '../core/models/config.interface';
   providedIn: 'root',
 })
 export class ConfigService {
-  public configData: InConfiguration;
+  public configData!: InConfiguration;
 
   constructor() {
     this.setConfigData();
